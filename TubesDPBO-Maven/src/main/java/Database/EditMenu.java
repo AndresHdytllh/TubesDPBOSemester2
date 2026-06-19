@@ -12,7 +12,7 @@ public class EditMenu {
         
         try (Connection koneksi = KoneksiDB.getKoneksi();
              PreparedStatement statement = koneksi.prepareStatement(sql)) {
-            
+                
             statement.setString(1, namaMenu);
             statement.setDouble(2, harga);
             statement.setString(3, idMenu);

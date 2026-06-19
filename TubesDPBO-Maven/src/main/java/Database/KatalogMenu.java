@@ -27,7 +27,7 @@ public class KatalogMenu {
                  ResultSet rs = stmt.executeQuery(query)) {
                 
                 System.out.println("\n=== DAFTAR MENU ===");
-               
+
                 while (rs.next()) {
                     int id = rs.getInt("id");
                     String nama = rs.getString("nama");

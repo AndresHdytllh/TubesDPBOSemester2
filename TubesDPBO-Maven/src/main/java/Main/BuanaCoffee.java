@@ -2,11 +2,11 @@ package Main;
 
 import java.util.Scanner;
 
+import Database.EditMenu;
 import Database.KatalogMenu;
 import Database.UserLogin;
 import Database.UserRegist;
 import LaporanPackage.LaporanKeuangan;
-import UserPackage.Admin;
 
 public class BuanaCoffee {
 
@@ -14,17 +14,13 @@ public class BuanaCoffee {
 
         Scanner input = new Scanner(System.in);
         KatalogMenu menu = new KatalogMenu();
+        EditMenu editMenu = new EditMenu();
 
         boolean run = true;
 
         while (run) {
-<<<<<<< HEAD
             
             System.out.println("\n=== APLIKASI BUANA COFFEE ===");
-=======
-            System.out.println("test123");
-            System.out.println("=== APLIKASI BUANA COFFEE ===");
->>>>>>> 818d39d84445063967494b7213c7e40059b0cd4d
             System.out.println("1. Register");
             System.out.println("2. Login");
             System.out.println("0. Keluar");
@@ -106,7 +102,7 @@ public class BuanaCoffee {
                                     break;
                                 case 2:
                                     menu.tampilkanMenu();
-                                    System.out.println("Edit Menu : ");
+                                    System.out.println("\n=== Edit Menu ===");      //ADA RENCANA BUAT TAMBAH MENI / HAPUS MENU, TAPI KYKNNYA BAKAL BANYAK BGT -UPADANA MUNING-
                                     System.out.println("Masukkan ID Menu yang ingin diedit : ");
                                     String idMenu = input.nextLine();
                                     System.out.println("Masukkan Nama Menu baru : ");
@@ -114,7 +110,8 @@ public class BuanaCoffee {
                                     System.out.println("Masukkan Harga Menu baru : ");  
                                     double hargaMenu = input.nextDouble();
                                     input.nextLine();
-                                    EditMenu editMenu = new EditMenu();
+                                    editMenu.editMenu(idMenu, namaMenu, hargaMenu);
+                                    
                                     break;
                                 default:
                                     System.out.println("Opsi tidak valid.");
