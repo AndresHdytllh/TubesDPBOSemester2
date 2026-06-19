@@ -1,26 +1,11 @@
 package Main;
 
-import Database.KoneksiDB;
+import java.util.Scanner;
+
 import Database.KatalogMenu;
 import Database.UserLogin;
-import UserPackage.Admin;
-import UserPackage.Pelanggan;
 import Database.UserRegist;
-import MenuPackage.Menu;
-import MenuPackage.DetailPesanan;
-import MenuPackage.Reservasi;
-import PesananPackage.Pesanan;
-import PesananPackage.Kasir;
-import PesananPackage.Promo;
-import PembayaranPackage.PembayaranTunai;
-import PembayaranPackage.PembayaranNonTunai;
-import StatusPackage.StatusPesanan;
-import StatusPackage.StatusPembayaran;
-import LaporanPackage.Invoice;
-import LaporanPackage.LaporanKeuangan;
-import LaporanPackage.Meja;
-import java.util.ArrayList;
-import java.util.Scanner;
+import UserPackage.Admin;
 
 public class BuanaCoffee {
 
@@ -32,8 +17,13 @@ public class BuanaCoffee {
         boolean run = true;
 
         while (run) {
+<<<<<<< HEAD
             
             System.out.println("\n=== APLIKASI BUANA COFFEE ===");
+=======
+            System.out.println("test123");
+            System.out.println("=== APLIKASI BUANA COFFEE ===");
+>>>>>>> 818d39d84445063967494b7213c7e40059b0cd4d
             System.out.println("1. Register");
             System.out.println("2. Login");
             System.out.println("0. Keluar");
@@ -44,8 +34,6 @@ public class BuanaCoffee {
 
             switch (pilihan) {
                 case 1:
-                    System.out.print("Masukkan role (admin/pelanggan): ");
-                    String role = input.nextLine();
 
                     System.out.print("Masukkan username : ");
                     String usn = input.nextLine();
@@ -55,7 +43,7 @@ public class BuanaCoffee {
 
                     System.out.println("Sedang memproses registrasi...");
                     
-                    UserRegist userregist = new UserRegist(usn, pw, role);
+                    UserRegist userregist = new UserRegist(usn, pw);
                     
                     boolean berhasil = userregist.registerUser();
 
@@ -76,6 +64,7 @@ public class BuanaCoffee {
 
                     if (pilihanRole.equals("1")) {
                         role = "admin";
+
                     } else if (pilihanRole.equals("2")) {
                         role = "pelanggan";
                     } else {
@@ -97,6 +86,8 @@ public class BuanaCoffee {
 
                     if (loginBerhasil) {
                         System.out.println("Anda berhasil login sebagai " + role + "!");
+
+
                         
                     } else {
                         System.out.println("Login GAGAL. Periksa kembali username, password, atau role.");
@@ -111,7 +102,11 @@ public class BuanaCoffee {
                 default:
                     System.out.println("Opsi tidak valid, silakan coba lagi.");
                     break;
+
+
             }
+
+
         }
         input.close();
 
