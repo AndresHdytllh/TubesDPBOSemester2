@@ -96,7 +96,7 @@ public class BuanaCoffee {
 
                             switch (pilihanAdmin) {
                                 case 1:
-                                    LaporanKeuangan laporan = new LaporanKeuangan("LP001", "Januari 2024");
+                                    LaporanKeuangan laporan = new LaporanKeuangan("LP001", "Januari 2024"); //INI MASIH DATA TES TES AN
                                     laporan.tampilkanLaporan();
                                     break;
                                 case 2:
