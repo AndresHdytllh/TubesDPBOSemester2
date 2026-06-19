@@ -17,10 +17,9 @@ private String username;
 private String password;
 private String role;
 
-    public UserRegist(String username, String password, String role) {
+    public UserRegist(String username, String password) {
         this.username = username;
         this.password = password;
-        this.role = role;
     }
 
     public String getUsername() {
@@ -50,7 +49,7 @@ private String role;
     
     public boolean registerUser() {
        
-        String sql = "INSERT INTO users (username, password, role) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
         
         try (Connection koneksi = KoneksiDB.getKoneksi();
              PreparedStatement statement = koneksi.prepareStatement(sql)) {
