@@ -17,13 +17,13 @@ public class BuanaCoffee {
         boolean run = true;
 
         while (run) {
-<<<<<<< HEAD
+
             
-            System.out.println("\n=== APLIKASI BUANA COFFEE ===");
-=======
-            System.out.println("test123");
+       
+
+            
             System.out.println("=== APLIKASI BUANA COFFEE ===");
->>>>>>> 818d39d84445063967494b7213c7e40059b0cd4d
+
             System.out.println("1. Register");
             System.out.println("2. Login");
             System.out.println("0. Keluar");
