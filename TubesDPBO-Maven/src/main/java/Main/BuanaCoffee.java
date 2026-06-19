@@ -33,7 +33,7 @@ public class BuanaCoffee {
 
         while (run) {
             
-            System.out.println("\n=== APLIKASI KASIR BUANA COFFEE ===");
+            System.out.println("\n=== APLIKASI BUANA COFFEE ===");
             System.out.println("1. Register");
             System.out.println("2. Login");
             System.out.println("0. Keluar");

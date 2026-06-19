@@ -8,18 +8,19 @@ package Main;
  *
  * @author lenovo
  */
-public class LandingPage extends javax.swing.JFrame {
+public class RegistPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LandingPage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistPage.class.getName());
 
     /**
-     * Creates new form LandingPage
+     * Creates new form RegistPage
      */
-    public LandingPage() {
+    public RegistPage() {
         initComponents();
         setSize(1366,768);
         setLocationRelativeTo(null);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,81 +32,49 @@ public class LandingPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        registBut = new javax.swing.JButton();
-        keluarBut = new javax.swing.JButton();
-        loginBut = new javax.swing.JButton();
+        backBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("APLIKASI BUANA COFFEE");
+        jLabel1.setText("REGISTER");
 
-        registBut.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        registBut.setText("Register");
-        registBut.addActionListener(this::registButActionPerformed);
-
-        keluarBut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        keluarBut.setText("Keluar");
-        keluarBut.addActionListener(this::keluarButActionPerformed);
-
-        loginBut.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        loginBut.setText("Login");
-        loginBut.addActionListener(this::loginButActionPerformed);
+        backBut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        backBut.setText("Kembali");
+        backBut.addActionListener(this::backButActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(740, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(560, 560, 560))
+                .addGap(532, 532, 532))
             .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addComponent(keluarBut)
+                .addGap(171, 171, 171)
+                .addComponent(backBut)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(357, 357, 357)
-                .addComponent(registBut)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 432, Short.MAX_VALUE)
-                .addComponent(loginBut)
-                .addGap(416, 416, 416))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addGap(100, 100, 100)
                 .addComponent(jLabel1)
-                .addGap(92, 92, 92)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registBut)
-                    .addComponent(loginBut))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 401, Short.MAX_VALUE)
-                .addComponent(keluarBut)
-                .addGap(70, 70, 70))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 563, Short.MAX_VALUE)
+                .addComponent(backBut)
+                .addGap(42, 42, 42))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void registButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registButActionPerformed
-        RegistPage regist = new RegistPage();
-        regist.setVisible(true);
+    private void backButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButActionPerformed
+        LandingPage home = new LandingPage();
+        home.setVisible(true);
         this.dispose();
-             // TODO add your handling code here:
-    }//GEN-LAST:event_registButActionPerformed
-
-    private void loginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButActionPerformed
-        LoginPage login = new LoginPage();
-        login.setVisible(true);
-        this.dispose();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_loginButActionPerformed
-
-    private void keluarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarButActionPerformed
-        System.exit(0); 
 // TODO add your handling code here:
-    }//GEN-LAST:event_keluarButActionPerformed
+    }//GEN-LAST:event_backButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,13 +98,11 @@ public class LandingPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new LandingPage().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new RegistPage().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBut;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton keluarBut;
-    private javax.swing.JButton loginBut;
-    private javax.swing.JButton registBut;
     // End of variables declaration//GEN-END:variables
 }
