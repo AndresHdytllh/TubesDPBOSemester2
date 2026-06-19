@@ -17,6 +17,7 @@ private String username;
 private String password;
 private String role;
 
+
     public UserRegist(String username, String password) {
         this.username = username;
         this.password = password;
@@ -47,9 +48,10 @@ private String role;
     }
     
     
+    
     public boolean registerUser() {
        
-        String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        String sql = "INSERT INTO users (username, password, role) VALUES (?, ?, ?)";
         
         try (Connection koneksi = KoneksiDB.getKoneksi();
              PreparedStatement statement = koneksi.prepareStatement(sql)) {
@@ -57,7 +59,8 @@ private String role;
             
             statement.setString(1, getUsername());
             statement.setString(2, getPassword());
-            statement.setString(3, getRole().toLowerCase()); 
+            statement.setString(3, getRole().toLowerCase());
+             
             
             
             int rowsInserted = statement.executeUpdate();
@@ -68,4 +71,6 @@ private String role;
             return false;
         }
     }
+
+    
 }
