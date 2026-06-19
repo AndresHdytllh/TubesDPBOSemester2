@@ -34,6 +34,7 @@ public class LandingPage extends javax.swing.JFrame {
         keluarBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         tittleLabel.setText("APLIKASI  BUANA COFFEE");
 
@@ -52,7 +53,7 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addComponent(registBut, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(loginBut, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81))
             .addGroup(layout.createSequentialGroup()
@@ -63,7 +64,7 @@ public class LandingPage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(157, 157, 157)
                         .addComponent(keluarBut, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(1620, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,7 +78,7 @@ public class LandingPage extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(registBut)
                             .addComponent(loginBut))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4680, Short.MAX_VALUE)
                 .addComponent(keluarBut)
                 .addGap(33, 33, 33))
         );
