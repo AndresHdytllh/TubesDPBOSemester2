@@ -17,10 +17,10 @@ private String username;
 private String password;
 private String role;
 
-    public UserRegist(String username, String password, String role) {
+
+    public UserRegist(String username, String password) {
         this.username = username;
         this.password = password;
-        this.role = role;
     }
 
     public String getUsername() {
@@ -48,6 +48,7 @@ private String role;
     }
     
     
+    
     public boolean registerUser() {
        
         String sql = "INSERT INTO users (username, password, role) VALUES (?, ?, ?)";
@@ -58,7 +59,8 @@ private String role;
             
             statement.setString(1, getUsername());
             statement.setString(2, getPassword());
-            statement.setString(3, getRole().toLowerCase()); 
+            statement.setString(3, getRole().toLowerCase());
+             
             
             
             int rowsInserted = statement.executeUpdate();
@@ -69,4 +71,6 @@ private String role;
             return false;
         }
     }
+
+    
 }
