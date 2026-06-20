@@ -19,8 +19,22 @@ public class BuanaCoffee {
         boolean run = true;
 
         while (run) {
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+<<<<<<< HEAD
             
             System.out.println("\n=== APLIKASI BUANA COFFEE ===");
+=======
+            System.out.println("test123");
+=======
+            
+>>>>>>> Stashed changes
+            System.out.println("=== APLIKASI BUANA COFFEE ===");
+>>>>>>> 818d39d84445063967494b7213c7e40059b0cd4d
+=======
+            
+            System.out.println("\n=== APLIKASI BUANA COFFEE ===");
+>>>>>>> 1bc041dbcf63001dc46294cf38527a57369eced9
             System.out.println("1. Register");
             System.out.println("2. Login");
             System.out.println("0. Keluar");
@@ -123,18 +137,6 @@ public class BuanaCoffee {
                             System.out.println("2. Pesan Menu");
                             System.out.println("3. Pilih Opsi : ");
                             int pilihanPelanggan = input.nextInt();
-                            
-                            switch (pilihanPelanggan){
-                                case 1:
-                                    System.out.println("==Daftar Menu Buana Coffee");
-                                    menu.tampilkanMenu();
-                                    System.out.println("2. Pesan Menu");
-                                    System.out.println("3. Pilih Opsi : ");
-                                    pilihanPelanggan = input.nextInt();
-                                    break;
-                                case 2:
-                                    
-                            }
                         }
 
                     } else {
