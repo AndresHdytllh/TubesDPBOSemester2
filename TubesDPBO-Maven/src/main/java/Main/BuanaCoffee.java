@@ -97,6 +97,81 @@ public class BuanaCoffee {
 
                     if (loginBerhasil) {
                         System.out.println("Anda berhasil login sebagai " + role + "!");
+
+                        if (role.equals("pelanggan")) {
+                            Menu menu1 = new Menu("M001", "Kopi Susu", 18000);
+                            Menu menu2 = new Menu("M002", "Cafe Latte", 25000);
+                            Menu menu3 = new Menu("M003", "Americano", 15000);
+
+                            DetailPesanan detail =
+                                    new DetailPesanan("M001", "Kopi Susu", 18000, 2, 36000);
+
+                            ArrayList<Meja> daftarMeja = new ArrayList<>();
+
+                            for (int i = 1; i <= 10; i++) {
+                                daftarMeja.add(new Meja(i, 4));
+                            }
+
+                            System.out.println("\n=== DAFTAR MENU ===");
+
+                            System.out.println("\nMenu 1");
+                            System.out.println("ID Menu : " + menu1.getIdMenu());
+                            System.out.println("Nama : " + menu1.getNamaProduk());
+                            System.out.println("Harga : " + menu1.getHarga());
+
+                            System.out.println("\nMenu 2");
+                            System.out.println("ID Menu : " + menu2.getIdMenu());
+                            System.out.println("Nama : " + menu2.getNamaProduk());
+                            System.out.println("Harga : " + menu2.getHarga());
+
+                            System.out.println("\nMenu 3");
+                            System.out.println("ID Menu : " + menu3.getIdMenu());
+                            System.out.println("Nama : " + menu3.getNamaProduk());
+                            System.out.println("Harga : " + menu3.getHarga());
+
+                            System.out.println("\n=== DAFTAR MEJA ===");
+                            for (Meja meja : daftarMeja) {
+                                System.out.println("Meja " + meja.getNoMeja() + " | Kapasitas : " + meja.getKapasitas() + " | Status : " + meja.getStatusMeja());
+                            }
+
+                            System.out.print("\nPilih nomor meja (1-10): ");
+                            int nomorMeja = input.nextInt();
+
+                            if (nomorMeja < 1 || nomorMeja > 10) {
+                                System.out.println("Nomor meja tidak valid!");
+                                break;
+                            }
+
+                            input.nextLine();
+
+                            System.out.print("Masukkan ID Reservasi: ");
+                            String idReservasi = input.nextLine();
+
+                            System.out.print("Masukkan Jumlah Orang: ");
+                            int jumlahOrang = input.nextInt();
+                            input.nextLine();
+
+                            Reservasi reservasi = new Reservasi("M002", "Cafe Latte", 25000, idReservasi, jumlahOrang);
+
+                            Meja mejaDipilih = daftarMeja.get(nomorMeja - 1);
+                            mejaDipilih.pesanMeja();
+
+                            System.out.println("\n=== DETAIL PESANAN ===");
+                            System.out.println("ID Menu : " + detail.getIdMenu());
+                            System.out.println("Nama : " + detail.getNamaProduk());
+                            System.out.println("Harga : " + detail.getHarga());
+                            System.out.println("Qty : " + detail.getQuantity());
+                            System.out.println("Subtotal : " + detail.getSubtotal());
+
+                            System.out.println("\n=== RESERVASI ===");
+                            System.out.println("Nomor Meja : " + nomorMeja);
+                            System.out.println("ID Menu : " + reservasi.getIdMenu());
+                            System.out.println("Nama Menu : " + reservasi.getNamaProduk());
+                            System.out.println("Harga : " + reservasi.getHarga());
+                            System.out.println("ID Reservasi : " + reservasi.getIdReservasi());
+                            System.out.println("Jumlah Orang : " + reservasi.getJumlahOrang());
+                            System.out.println("Status Meja : " + mejaDipilih.getStatusMeja());
+                        }
                         
                     } else {
                         System.out.println("Login GAGAL. Periksa kembali username, password, atau role.");
