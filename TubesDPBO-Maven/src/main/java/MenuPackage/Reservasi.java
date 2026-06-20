@@ -8,13 +8,12 @@ package MenuPackage;
  *
  * @author lenovo
  */
-public class Reservasi extends Menu{
+public class Reservasi{
 
     private String idReservasi;
     private int jumlahOrang;
 
-    public Reservasi(String idMenu, String menuProduk, int harga, String idReservasi, int jumlahOrang) {
-        super(idMenu, menuProduk, harga);
+    public Reservasi(String idReservasi, int jumlahOrang) {
         this.idReservasi = idReservasi;
         this.jumlahOrang = jumlahOrang;
     }

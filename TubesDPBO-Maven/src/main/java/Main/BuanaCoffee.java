@@ -173,7 +173,7 @@ public class BuanaCoffee {
                                     int jumlahOrang = input.nextInt();
                                     input.nextLine();
 
-                                    Reservasi reservasi = new Reservasi(idMenuPesan, "Menu Dipilih", 0, idReservasi, jumlahOrang);
+                                    Reservasi reservasi = new Reservasi(idReservasi, jumlahOrang);
 
                                     Meja mejaDipilih = daftarMeja.get(nomorMeja - 1);
                                     mejaDipilih.pesanMeja();
@@ -182,7 +182,6 @@ public class BuanaCoffee {
 
                                     System.out.println("\n=== RESERVASI ===");
                                     System.out.println("Nomor Meja : " + nomorMeja);
-                                    System.out.println("ID Menu : " + reservasi.getIdMenu());
                                     System.out.println("ID Reservasi : " + reservasi.getIdReservasi());
                                     System.out.println("Jumlah Orang : " + reservasi.getJumlahOrang());
                                     System.out.println("Status Meja : " + mejaDipilih.getStatusMeja());
