@@ -133,7 +133,18 @@ public class BuanaCoffee {
                                     pilihanPelanggan = input.nextInt();
                                     break;
                                 case 2:
-                                    
+                                    System.out.println("==Daftar Menu Buana Coffee");
+                                    menu.tampilkanMenu();
+                                    System.out.println("Masukkan ID Menu yang ingin dipesan : ");
+                                    String idMenuPesan = input.nextLine();
+                                    System.out.println("Masukkan jumlah pesanan : ");
+                                    int jumlahPesanan = input.nextInt();
+                                    input.nextLine();
+                                    System.out.println("Pesanan berhasil! Silakan lanjutkan ke pembayaran.");
+                                    break;
+                                default:
+                                    System.out.println("Opsi tidak valid.");
+                                    break;
                             }
                         }
 
