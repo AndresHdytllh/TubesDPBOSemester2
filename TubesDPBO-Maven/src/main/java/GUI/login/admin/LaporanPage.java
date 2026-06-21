@@ -2,24 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI.login;
-
-import GUI.LandingPage;
-import GUI.login.admin.AdminLog;
-import GUI.login.pelanggan.PelangganLog;
+package GUI.login.admin;
 
 /**
  *
  * @author lenovo
  */
-public class LoginPage extends javax.swing.JFrame {
+public class LaporanPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LoginPage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LaporanPage.class.getName());
 
     /**
-     * Creates new form LoginPage
+     * Creates new form LaporanPage
      */
-    public LoginPage() {
+    public LaporanPage() {
         initComponents();
     }
 
@@ -33,63 +29,57 @@ public class LoginPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        adminBut = new javax.swing.JButton();
-        PelangganBut = new javax.swing.JButton();
         kembaliBut = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setText("LOGIN");
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel2.setText("Login sebagai");
-
-        adminBut.setText("Admin");
-        adminBut.addActionListener(this::adminButActionPerformed);
-
-        PelangganBut.setText("Pelanggan");
-        PelangganBut.addActionListener(this::PelangganButActionPerformed);
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel1.setText("Laporan Keuangan");
 
         kembaliBut.setText("Kembali");
         kembaliBut.addActionListener(this::kembaliButActionPerformed);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addComponent(adminBut, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(PelangganBut, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(181, 181, 181))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(kembaliBut, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(kembaliBut, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(adminBut)
-                    .addComponent(PelangganBut))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(kembaliBut)
                 .addContainerGap())
         );
@@ -97,23 +87,9 @@ public class LoginPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PelangganButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PelangganButActionPerformed
-        PelangganLog pelanggan = new PelangganLog();
-        pelanggan.setVisible(true);
-        this.dispose();
-// TODO add your handling code here:
-    }//GEN-LAST:event_PelangganButActionPerformed
-
-    private void adminButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButActionPerformed
-        AdminLog admin = new AdminLog();
-        admin.setVisible(true);
-        this.dispose();
-// TODO add your handling code here:
-    }//GEN-LAST:event_adminButActionPerformed
-
     private void kembaliButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliButActionPerformed
-        LandingPage LP = new LandingPage();
-        LP.setVisible(true);
+        AdminHome adHome = new AdminHome();
+        adHome.setVisible(true);
         this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_kembaliButActionPerformed
@@ -140,14 +116,13 @@ public class LoginPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new LoginPage().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new LaporanPage().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton PelangganBut;
-    private javax.swing.JButton adminBut;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton kembaliBut;
     // End of variables declaration//GEN-END:variables
 }

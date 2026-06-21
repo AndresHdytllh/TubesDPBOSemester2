@@ -4,6 +4,9 @@
  */
 package GUI;
 
+import GUI.login.LoginPage;
+import GUI.regist.RegistPage;
+
 /**
  *
  * @author lenovo
@@ -39,12 +42,14 @@ public class LandingPage extends javax.swing.JFrame {
         jLabel1.setText("APLIKASI BUANA COFFEE");
 
         registBut.setText("REGIST");
+        registBut.addActionListener(this::registButActionPerformed);
 
         loginBut.setText("LOGIN");
         loginBut.addActionListener(this::loginButActionPerformed);
 
         keluarBut.setForeground(new java.awt.Color(255, 0, 51));
         keluarBut.setText("Keluar");
+        keluarBut.addActionListener(this::keluarButActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,8 +88,23 @@ public class LandingPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButActionPerformed
-        // TODO add your handling code here:
+        LoginPage login = new LoginPage();
+        login.setVisible(true);
+        this.dispose();
+// TODO add your handling code here:
     }//GEN-LAST:event_loginButActionPerformed
+
+    private void keluarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarButActionPerformed
+        System.exit(0);
+// TODO add your handling code here:
+    }//GEN-LAST:event_keluarButActionPerformed
+
+    private void registButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registButActionPerformed
+        RegistPage regist = new RegistPage();
+        regist.setVisible(true);
+        this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_registButActionPerformed
 
     /**
      * @param args the command line arguments

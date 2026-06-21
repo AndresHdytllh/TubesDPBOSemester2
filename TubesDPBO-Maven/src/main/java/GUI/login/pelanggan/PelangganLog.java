@@ -2,22 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI.regist;
+package GUI.login.pelanggan;
 
-import GUI.LandingPage;
+import GUI.login.LoginPage;
 
 /**
  *
  * @author lenovo
  */
-public class RegistPage extends javax.swing.JFrame {
+public class PelangganLog extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistPage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PelangganLog.class.getName());
 
     /**
-     * Creates new form RegistPage
+     * Creates new form PelangganPage
      */
-    public RegistPage() {
+    public PelangganLog() {
         initComponents();
     }
 
@@ -32,28 +32,28 @@ public class RegistPage extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        usnFil = new javax.swing.JTextField();
+        usnFilPel = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        passFil = new javax.swing.JPasswordField();
-        daftarBut = new javax.swing.JButton();
+        passFilPel = new javax.swing.JPasswordField();
+        masukButPel = new javax.swing.JButton();
         kembaliBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setText("REGISTRASI");
+        jLabel1.setText("PELANGGAN");
 
         jLabel2.setText("Username:");
 
-        usnFil.addActionListener(this::usnFilActionPerformed);
+        usnFilPel.addActionListener(this::usnFilPelActionPerformed);
 
         jLabel3.setText("Password:");
 
-        passFil.addActionListener(this::passFilActionPerformed);
+        passFilPel.addActionListener(this::passFilPelActionPerformed);
 
-        daftarBut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        daftarBut.setText("Daftar");
-        daftarBut.addActionListener(this::daftarButActionPerformed);
+        masukButPel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        masukButPel.setText("Masuk");
+        masukButPel.addActionListener(this::masukButPelActionPerformed);
 
         kembaliBut.setText("Kembali");
         kembaliBut.addActionListener(this::kembaliButActionPerformed);
@@ -65,41 +65,41 @@ public class RegistPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
+                        .addGap(134, 134, 134)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(27, 27, 27)
+                        .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(usnFil)
-                            .addComponent(passFil, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(usnFilPel)
+                            .addComponent(passFilPel, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(daftarBut, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(146, 146, 146)
+                        .addComponent(masukButPel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(kembaliBut, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                        .addComponent(kembaliBut, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(usnFil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(usnFilPel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(passFil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(daftarBut)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                    .addComponent(passFilPel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(masukButPel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(kembaliBut)
                 .addContainerGap())
         );
@@ -107,24 +107,24 @@ public class RegistPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usnFilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usnFilActionPerformed
+    private void masukButPelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukButPelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usnFilActionPerformed
+    }//GEN-LAST:event_masukButPelActionPerformed
 
     private void kembaliButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliButActionPerformed
-        LandingPage LP = new LandingPage();
-        LP.setVisible(true);
+        LoginPage login = new LoginPage();
+        login.setVisible(true);
         this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_kembaliButActionPerformed
 
-    private void passFilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFilActionPerformed
+    private void usnFilPelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usnFilPelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passFilActionPerformed
+    }//GEN-LAST:event_usnFilPelActionPerformed
 
-    private void daftarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarButActionPerformed
+    private void passFilPelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFilPelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_daftarButActionPerformed
+    }//GEN-LAST:event_passFilPelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,16 +148,16 @@ public class RegistPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new RegistPage().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new PelangganLog().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton daftarBut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton kembaliBut;
-    private javax.swing.JPasswordField passFil;
-    private javax.swing.JTextField usnFil;
+    private javax.swing.JButton masukButPel;
+    private javax.swing.JPasswordField passFilPel;
+    private javax.swing.JTextField usnFilPel;
     // End of variables declaration//GEN-END:variables
 }

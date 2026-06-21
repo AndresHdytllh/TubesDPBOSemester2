@@ -8,14 +8,14 @@ package GUI.login.pelanggan;
  *
  * @author lenovo
  */
-public class PelangganPage extends javax.swing.JFrame {
+public class PelangganHome extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PelangganPage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PelangganHome.class.getName());
 
     /**
-     * Creates new form PelangganPage
+     * Creates new form LihatMenuPage
      */
-    public PelangganPage() {
+    public PelangganHome() {
         initComponents();
     }
 
@@ -28,21 +28,48 @@ public class PelangganPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jLabel2 = new javax.swing.JLabel();
+        logoutBut = new javax.swing.JButton();
+
+        jLabel1.setText("jLabel1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setText("Selamat Datang");
+
+        logoutBut.setText("Logout");
+        logoutBut.addActionListener(this::logoutButActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(logoutBut, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(133, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(148, 148, 148))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 364, Short.MAX_VALUE)
+                .addComponent(logoutBut))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void logoutButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -66,9 +93,13 @@ public class PelangganPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new PelangganPage().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new PelangganHome().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JButton logoutBut;
     // End of variables declaration//GEN-END:variables
 }
