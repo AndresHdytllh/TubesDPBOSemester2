@@ -15,6 +15,7 @@ public class BuanaCoffee {
         KatalogMenu menu = new KatalogMenu();
 
         boolean run = true;
+        String role = input.nextLine();
 
         while (run) {
 
