@@ -92,6 +92,8 @@ public class LandingPage extends javax.swing.JFrame {
         RegistPage regist = new RegistPage();
         regist.setVisible(true);
         this.dispose();
+        
+        
              // TODO add your handling code here:
     }//GEN-LAST:event_registButActionPerformed
 

@@ -44,7 +44,7 @@ public class LaporanKeuangan {
         System.out.println("ID Laporan   : " + idLaporan);
         System.out.println("Periode      : " + periode);
         System.out.println("Jumlah Transaksi: " + daftarInvoice.size());
-        System.out.printf("Total Pendapatan: Rp %.2f%n", totalPendapatan);
+        System.out.printf("Total Pendapatan: Rp %.2f%n", getTotalPendapatan());
         System.out.println("=================================");
     }
 }
