@@ -60,13 +60,13 @@ public class BuanaCoffee {
                     System.out.println("2. Pelanggan");
                     System.out.print("Pilih Opsi : ");
                     String pilihanRole = input.nextLine();
-                    String role = "";
+                    
 
                     if (pilihanRole.equals("1")) {
-                         role = "admin";
+                         pilihanRole = "admin";
 
                     } else if (pilihanRole.equals("2")) {
-                         role = "pelanggan";
+                         pilihanRole = "pelanggan";
                     } else {
                         System.out.println("Pilihan role tidak valid.");
                         break;
@@ -80,15 +80,15 @@ public class BuanaCoffee {
 
                     System.out.println("Sedang memproses login...");
                     
-                    UserLogin userlogin = new UserLogin(usn, pw, role);
+                    UserLogin userlogin = new UserLogin(usn, pw, pilihanRole);
 
                     boolean loginBerhasil = userlogin.loginUser();
 
                     if (loginBerhasil) {
-                        System.out.println("Anda berhasil login sebagai " + role + "!");
+                        System.out.println("Anda berhasil login sebagai " + pilihanRole + "!");
                         System.out.println("\nSelamat datang di Buana Coffee, " + usn + "!");
 
-                        if (role.equals("admin")) {
+                        if (pilihanRole.equals("admin")) {
                             System.out.println("1. Lihat Laporan Penjualan");
                             System.out.println("2. Kelola Menu");
                             System.out.print("3. Pilih Opsi : ");
@@ -102,7 +102,7 @@ public class BuanaCoffee {
                                     break;
                                 case 2:
                                     menu.tampilkanMenu();
-                                    System.out.println("\n=== Edit Menu ===");      //ADA RENCANA BUAT TAMBAH MENI / HAPUS MENU, TAPI KYKNNYA BAKAL BANYAK BGT -UPADANA MUNING-
+                                    System.out.println("\n=== Edit Menu ===");      //ADA RENCANA BUAT TAMBAH MENu / HAPUS MENU, TAPI KYKNNYA BAKAL BANYAK BGT -UPADANA MUNING-
                                     System.out.println("Masukkan ID Menu yang ingin diedit : ");
                                     String idMenu = input.nextLine();
                                     System.out.println("Masukkan Nama Menu baru : ");
@@ -118,7 +118,7 @@ public class BuanaCoffee {
                                     break;
                             }
 
-                        } else if (role.equals("pelanggan")) {   //INI BELUM SELESAI, MASIH HARUS DITAMBAH FITUR PESAN MENU
+                        } else if (pilihanRole.equals("pelanggan")) {   //INI BELUM SELESAI, MASIH HARUS DITAMBAH FITUR PESAN MENU
                             System.out.println("1. Lihat Menu");
                             System.out.println("2. Pesan Menu");
                             System.out.println("3. Pilih Opsi : ");
