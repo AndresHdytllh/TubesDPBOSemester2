@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI.login.admin;
+import GUI.login.LoginPage;
 
 /**
  *
@@ -84,15 +85,24 @@ public class AdminHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void kelolaMenuButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kelolaMenuButActionPerformed
-        // TODO add your handling code here:
+        KelolaPage kelola = new KelolaPage();
+        kelola.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_kelolaMenuButActionPerformed
 
     private void laporanKeuanganButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laporanKeuanganButActionPerformed
-        // TODO add your handling code here:
+        LaporanPage laporan = new LaporanPage();
+        laporan.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_laporanKeuanganButActionPerformed
 
     private void logoutButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButActionPerformed
-        // TODO add your handling code here:
+        javax.swing.JOptionPane.showMessageDialog(this, "Anda telah logout!");
+
+    // 2. Buka kembali halaman Login (LoginPage.java)
+        LoginPage login = new LoginPage();
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_logoutButActionPerformed
 
     /**
