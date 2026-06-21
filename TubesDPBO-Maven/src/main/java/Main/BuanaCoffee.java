@@ -206,7 +206,7 @@ public class BuanaCoffee {
                     System.out.println("Terimakaish sudah menggunakan layanan kami :D");
                     run = false;
                     System.out.println("commit");
-                    System.out.println("titit 2");
+                    System.out.println("titit 2 punya moning");
                     break;
 
                 default:
