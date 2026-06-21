@@ -32,16 +32,66 @@ public class PelangganHome extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         jLabel2 = new javax.swing.JLabel();
         logoutBut = new javax.swing.JButton();
+        CappucinoCheck = new javax.swing.JCheckBox();
+        latteCheck = new javax.swing.JCheckBox();
+        AmericanoCheck = new javax.swing.JCheckBox();
+        MachiatoCheck = new javax.swing.JCheckBox();
+        MatchaCheck = new javax.swing.JCheckBox();
+        AffogatoCheck = new javax.swing.JCheckBox();
+        CappucinoCombo = new javax.swing.JComboBox<>();
+        MachiatoCombo = new javax.swing.JComboBox<>();
+        AffogatoCombo = new javax.swing.JComboBox<>();
+        LatteCombo = new javax.swing.JComboBox<>();
+        AmericannoCombo = new javax.swing.JComboBox<>();
+        MatchaCombo = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setText("Selamat Datang");
 
         logoutBut.setText("Logout");
         logoutBut.addActionListener(this::logoutButActionPerformed);
+
+        CappucinoCheck.setText("Cappucino");
+        CappucinoCheck.addActionListener(this::CappucinoCheckActionPerformed);
+
+        latteCheck.setText("Latte");
+        latteCheck.addActionListener(this::latteCheckActionPerformed);
+
+        AmericanoCheck.setText("Americano");
+        AmericanoCheck.addActionListener(this::AmericanoCheckActionPerformed);
+
+        MachiatoCheck.setText("Machiato");
+        MachiatoCheck.addActionListener(this::MachiatoCheckActionPerformed);
+
+        MatchaCheck.setText("Matcha");
+        MatchaCheck.addActionListener(this::MatchaCheckActionPerformed);
+
+        AffogatoCheck.setText("Affogato");
+        AffogatoCheck.addActionListener(this::AffogatoCheckActionPerformed);
+
+        CappucinoCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        CappucinoCombo.setSelectedItem(CappucinoCheck);
+
+        MachiatoCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+
+        AffogatoCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        AffogatoCombo.setSelectedItem(AffogatoCheck);
+
+        LatteCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        LatteCombo.setSelectedItem(latteCheck);
+
+        AmericannoCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        AmericannoCombo.setSelectedItem(AmericanoCheck);
+
+        MatchaCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setText("Silahkan Memilih Menu");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,17 +100,67 @@ public class PelangganHome extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(logoutBut, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(MatchaCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AmericanoCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(latteCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LatteCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AmericannoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MatchaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(MachiatoCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MachiatoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(AffogatoCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AffogatoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(CappucinoCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CappucinoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(14, 14, 14))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(133, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(148, 148, 148))
+                .addGap(119, 119, 119))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 364, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(latteCheck)
+                    .addComponent(LatteCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CappucinoCheck)
+                    .addComponent(CappucinoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AmericanoCheck)
+                    .addComponent(AmericannoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MachiatoCheck)
+                    .addComponent(MachiatoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AffogatoCheck)
+                    .addComponent(MatchaCheck)
+                    .addComponent(AffogatoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MatchaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(logoutBut))
         );
 
@@ -70,6 +170,30 @@ public class PelangganHome extends javax.swing.JFrame {
     private void logoutButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutButActionPerformed
+
+    private void CappucinoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CappucinoCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CappucinoCheckActionPerformed
+
+    private void latteCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_latteCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_latteCheckActionPerformed
+
+    private void AmericanoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmericanoCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AmericanoCheckActionPerformed
+
+    private void MachiatoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MachiatoCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MachiatoCheckActionPerformed
+
+    private void MatchaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MatchaCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MatchaCheckActionPerformed
+
+    private void AffogatoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AffogatoCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AffogatoCheckActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,9 +221,22 @@ public class PelangganHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox AffogatoCheck;
+    private javax.swing.JComboBox<String> AffogatoCombo;
+    private javax.swing.JComboBox<String> AmericannoCombo;
+    private javax.swing.JCheckBox AmericanoCheck;
+    private javax.swing.JCheckBox CappucinoCheck;
+    private javax.swing.JComboBox<String> CappucinoCombo;
+    private javax.swing.JComboBox<String> LatteCombo;
+    private javax.swing.JCheckBox MachiatoCheck;
+    private javax.swing.JComboBox<String> MachiatoCombo;
+    private javax.swing.JCheckBox MatchaCheck;
+    private javax.swing.JComboBox<String> MatchaCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JCheckBox latteCheck;
     private javax.swing.JButton logoutBut;
     // End of variables declaration//GEN-END:variables
 }
