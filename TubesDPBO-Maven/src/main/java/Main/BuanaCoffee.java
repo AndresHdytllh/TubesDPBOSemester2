@@ -19,7 +19,7 @@ public class BuanaCoffee {
         while (run) {
 
             
-            System.out.println("frodo test commit");
+            
 
             
             System.out.println("=== APLIKASI BUANA COFFEE ===");
