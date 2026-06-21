@@ -179,8 +179,9 @@ public class KelolaPage extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Gagal menyimpan data! Error: " + e.getMessage());
         }
     }
-    }//GEN-LAST:event_simpanButActionPerformed
-
+    }
+//GEN-LAST:event_simpanButActionPerforme
+    
     /**
      * @param args the command line arguments
      */
