@@ -200,7 +200,7 @@ public class BuanaCoffee {
                 case 0:
                     System.out.println("Terimakaish sudah menggunakan layanan kami :D");
                     run = false;
-                    System.out.println("commit");
+                    
                     break;
 
                 default:
