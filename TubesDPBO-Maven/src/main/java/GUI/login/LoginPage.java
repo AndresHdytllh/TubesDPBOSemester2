@@ -2,11 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
-
-import GUI.LandingPage;
-import GUI.AdminPage;
-import GUI.PelangganPage;
+package GUI.login;
 
 /**
  *
@@ -21,8 +17,6 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-        setSize(1366,768);
-        setLocationRelativeTo(null);
     }
 
     /**
@@ -35,83 +29,81 @@ public class LoginPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        backBut = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        adminBut = new javax.swing.JButton();
+        PelangganBut = new javax.swing.JButton();
+        kembaliBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("LOGIN");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton1.setText("ADMIN");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setText("Login sebagai");
 
-        jButton2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton2.setText("PELANGGAN");
-        jButton2.addActionListener(this::jButton2ActionPerformed);
+        adminBut.setText("Admin");
+        adminBut.addActionListener(this::adminButActionPerformed);
 
-        backBut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        backBut.setText("Kembali");
-        backBut.addActionListener(this::backButActionPerformed);
+        PelangganBut.setText("Pelanggan");
+        PelangganBut.addActionListener(this::PelangganButActionPerformed);
+
+        kembaliBut.setText("Kembali");
+        kembaliBut.addActionListener(this::kembaliButActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(618, 618, 618))
             .addGroup(layout.createSequentialGroup()
-                .addGap(361, 361, 361)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 475, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(309, 309, 309))
+                .addContainerGap(86, Short.MAX_VALUE)
+                .addComponent(adminBut, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(PelangganBut, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88))
             .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(backBut)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(kembaliBut, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel1)
-                .addGap(110, 110, 110)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 398, Short.MAX_VALUE)
-                .addComponent(backBut)
-                .addGap(48, 48, 48))
+                    .addComponent(adminBut)
+                    .addComponent(PelangganBut))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addComponent(kembaliBut)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AdminPage admin = new AdminPage();
-        admin.setVisible(true);
-        this.dispose();
-// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void PelangganButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PelangganButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PelangganButActionPerformed
 
-    private void backButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButActionPerformed
-        LandingPage home = new LandingPage();
-                home.setVisible(true);
-                this.dispose();
-// TODO add your handling code here:
-    }//GEN-LAST:event_backButActionPerformed
+    private void adminButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adminButActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        PelangganPage pelanggan = new PelangganPage();
-        pelanggan.setVisible(true);
-        this.dispose();
-// TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void kembaliButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kembaliButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,9 +131,10 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backBut;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton PelangganBut;
+    private javax.swing.JButton adminBut;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton kembaliBut;
     // End of variables declaration//GEN-END:variables
 }
