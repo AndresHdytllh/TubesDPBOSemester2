@@ -195,6 +195,7 @@ public class BuanaCoffee {
 
                     } else {
                         System.out.println("Login GAGAL. Periksa kembali username, password, atau role.");
+                        System.out.println("tes");
                     }
                     break;
 
