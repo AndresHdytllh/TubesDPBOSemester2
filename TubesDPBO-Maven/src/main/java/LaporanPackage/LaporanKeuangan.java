@@ -7,6 +7,7 @@ import java.util.List;
  *
  * @author lenovo
  */
+
 public class LaporanKeuangan {
     private String idLaporan;
     private String periode;
