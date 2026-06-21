@@ -5,11 +5,13 @@
 package GUI.login.admin;
 
 import GUI.login.LoginPage;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author lenovo
- */
 public class AdminLog extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AdminLog.class.getName());
@@ -110,15 +112,135 @@ public class AdminLog extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void masukButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukButActionPerformed
-        // TODO add your handling code here:
+        String username = usnFilAdmin.getText();
+        String password = new String(passFilAdmin.getPassword()); 
+
+        // 2. Cek apakah ada field yang dibiarkan kosong
+        if (username.trim().isEmpty() || password.trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Username dan Password tidak boleh kosong!");
+        } else {
+            try {
+                // 3. Koneksi ke Database db_buanacoffee
+                String url = "jdbc:mysql://localhost:3306/db_buanacoffee";
+                String userDB = "root";
+                String passDB = ""; 
+                java.sql.Connection conn = java.sql.DriverManager.getConnection(url, userDB, passDB);
+
+                // 4. Query untuk mencocokkan username, password, dan memastikan role = 'admin'
+                String sql = "SELECT * FROM users WHERE username = ? AND password = ? AND role = 'admin'";
+                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                pst.setString(1, username);
+                pst.setString(2, password);
+
+                java.sql.ResultSet rs = pst.executeQuery();
+
+                // 5. Logika if-else penentuan hasil login
+                if (rs.next()) {
+                    // JIKA BENAR: Masuk ke AdminHome
+                    javax.swing.JOptionPane.showMessageDialog(this, "Login Berhasil!");
+
+                    AdminHome admin = new AdminHome();
+                    admin.setVisible(true);
+                    this.dispose(); 
+
+                } else {
+                    // JIKA SALAH: Muncul notif usn/pw salah
+                    javax.swing.JOptionPane.showMessageDialog(this, "Username atau Password salah!");
+
+                    // =======================================================
+                    // INI ADALAH BAGIAN UNTUK MERESET FIELD YANG DIISI
+                    // =======================================================
+                    usnFilAdmin.setText("");   // Mengosongkan isian Username
+                    passFilAdmin.setText("");  // Mengosongkan isian Password
+
+                    // Mengembalikan kursor berkedip ke kolom username
+                    usnFilAdmin.requestFocus();
+                }
+
+                // 6. Tutup koneksi database
+                rs.close();
+                pst.close();
+                conn.close();
+
+            } catch (java.sql.SQLException e) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Error Koneksi Database: " + e.getMessage());
+            }
+        }
     }//GEN-LAST:event_masukButActionPerformed
 
-    private void usnFilAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usnFilAdminActionPerformed
-        // TODO add your handling code here:
+        private void usnFilAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usnFilAdminActionPerformed
+            String username = usnFilAdmin.getText();
+
+        // Validasi input awal menggunakan if-else
+        if (username.trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Username tidak boleh kosong!");
+        } else {
+            try {
+                // Koneksi ke database
+                String url = "jdbc:mysql://localhost:3306/db_buanacoffee";
+                java.sql.Connection conn = java.sql.DriverManager.getConnection(url, "root", "");
+
+                // Query untuk cek username
+                String sql = "SELECT * FROM tabel_admin WHERE username = ?";
+                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                pst.setString(1, username);
+                java.sql.ResultSet rs = pst.executeQuery();
+
+                // Logika if-else untuk hasil database
+                if (rs.next()) {
+                    // Jika username ditemukan, pindah ke kolom password
+                    passFilAdmin.requestFocus();
+                } else {
+                    // Jika tidak ditemukan
+                    javax.swing.JOptionPane.showMessageDialog(this, "Username tidak terdaftar!");
+                    usnFilAdmin.setText("");
+                }
+
+                conn.close();
+            } catch (java.sql.SQLException e) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            }
+        }
     }//GEN-LAST:event_usnFilAdminActionPerformed
 
     private void passFilAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFilAdminActionPerformed
-        // TODO add your handling code here:
+        String username = usnFilAdmin.getText();
+    String password = new String(passFilAdmin.getPassword());
+    
+    // Validasi input awal menggunakan if-else
+    if (username.trim().isEmpty() || password.trim().isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Username dan Password harus diisi!");
+    } else {
+        try {
+            // Koneksi ke database
+            String url = "jdbc:mysql://localhost:3306/nama_database_anda";
+            java.sql.Connection conn = java.sql.DriverManager.getConnection(url, "root", "");
+            
+            // Query cek username DAN password sekaligus
+            String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, username);
+            pst.setString(2, password);
+            java.sql.ResultSet rs = pst.executeQuery();
+            
+            // Logika if-else untuk validasi login
+            if (rs.next()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Login Berhasil!");
+                
+                // TODO: Buka halaman utama aplikasi Anda di sini
+                // Contoh: new HalamanUtama().setVisible(true); this.dispose();
+                
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Password salah!");
+                passFilAdmin.setText("");
+                passFilAdmin.requestFocus();
+            }
+            
+            conn.close();
+        } catch (java.sql.SQLException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }
     }//GEN-LAST:event_passFilAdminActionPerformed
 
     private void kembaliButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliButActionPerformed
