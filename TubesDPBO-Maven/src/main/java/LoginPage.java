@@ -2,25 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Main;
 
 /**
  *
  * @author lenovo
  */
-public class RegistPage extends javax.swing.JFrame {
+public class LoginPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistPage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LoginPage.class.getName());
 
     /**
-     * Creates new form RegistPage
+     * Creates new form LoginPage
      */
-    public RegistPage() {
+    public LoginPage() {
         initComponents();
-        setSize(1366,768);
         setLocationRelativeTo(null);
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,50 +28,50 @@ public class RegistPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        backBut = new javax.swing.JButton();
+        loginTit = new javax.swing.JLabel();
+        kembaliBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("REGISTER");
+        loginTit.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        loginTit.setText("LOGIN");
 
-        backBut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        backBut.setText("Kembali");
-        backBut.addActionListener(this::backButActionPerformed);
+        kembaliBut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        kembaliBut.setText("Kembali");
+        kembaliBut.addActionListener(this::kembaliButActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(740, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(532, 532, 532))
+                .addContainerGap(173, Short.MAX_VALUE)
+                .addComponent(loginTit)
+                .addGap(169, 169, 169))
             .addGroup(layout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(backBut)
+                .addGap(16, 16, 16)
+                .addComponent(kembaliBut)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 563, Short.MAX_VALUE)
-                .addComponent(backBut)
-                .addGap(42, 42, 42))
+                .addGap(36, 36, 36)
+                .addComponent(loginTit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addComponent(kembaliBut)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButActionPerformed
-        LandingPage home = new LandingPage();
-        home.setVisible(true);
+    private void kembaliButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliButActionPerformed
+        LandingPage landing = new LandingPage();
+        landing.setVisible(true);
         this.dispose();
 // TODO add your handling code here:
-    }//GEN-LAST:event_backButActionPerformed
+    }//GEN-LAST:event_kembaliButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,11 +95,11 @@ public class RegistPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new RegistPage().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new LoginPage().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backBut;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton kembaliBut;
+    private javax.swing.JLabel loginTit;
     // End of variables declaration//GEN-END:variables
 }

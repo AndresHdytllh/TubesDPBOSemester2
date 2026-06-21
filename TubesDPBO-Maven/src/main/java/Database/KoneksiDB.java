@@ -23,7 +23,7 @@ public class KoneksiDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             koneksi = DriverManager.getConnection(URL, USER, PASS);
-            System.out.println("Koneksi ke Database Berhasil!");
+            System.out.println("Koneksi ke Database Berhasil");
         } catch (ClassNotFoundException e) {
             System.out.println("Driver tidak ditemukan: " + e.getMessage());
         } catch (SQLException e) {

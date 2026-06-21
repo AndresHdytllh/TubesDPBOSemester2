@@ -2,11 +2,10 @@ package Main;
 
 import java.util.Scanner;
 
-import Database.EditMenu;
 import Database.KatalogMenu;
 import Database.UserLogin;
 import Database.UserRegist;
-import LaporanPackage.LaporanKeuangan;
+import UserPackage.Admin;
 
 public class BuanaCoffee {
 
@@ -14,13 +13,15 @@ public class BuanaCoffee {
 
         Scanner input = new Scanner(System.in);
         KatalogMenu menu = new KatalogMenu();
-        EditMenu editMenu = new EditMenu();
 
         boolean run = true;
+        String role = input.nextLine();
 
         while (run) {
-            
-            System.out.println("\n=== APLIKASI BUANA COFFEE ===");
+
+         
+            System.out.println("=== APLIKASI BUANA COFFEE ===");
+
             System.out.println("1. Register");
             System.out.println("2. Login");
             System.out.println("0. Keluar");
@@ -41,13 +42,11 @@ public class BuanaCoffee {
                     System.out.println("Sedang memproses registrasi...");
                     
                     UserRegist userregist = new UserRegist(usn, pw);
-                    userregist.setRole("pelanggan");
                     
                     boolean berhasil = userregist.registerUser();
 
                     if (berhasil) {
-                        System.out.println("Registrasi akun berhasil!!!");
-                        System.out.println("\nSilakan login untuk menikmati layanan kami.");
+                        System.out.println("Registrasi akun '" + usn + "' dengan role [" + role + "] BERHASIL!");
                     } else {
                         System.out.println("Registrasi GAGAL. Periksa kembali koneksi atau ketersediaan username.");
                     }
@@ -60,13 +59,12 @@ public class BuanaCoffee {
                     System.out.println("2. Pelanggan");
                     System.out.print("Pilih Opsi : ");
                     String pilihanRole = input.nextLine();
-                    String role = "";
 
                     if (pilihanRole.equals("1")) {
-                         role = "admin";
+                        role = "admin";
 
                     } else if (pilihanRole.equals("2")) {
-                         role = "pelanggan";
+                        role = "pelanggan";
                     } else {
                         System.out.println("Pilihan role tidak valid.");
                         break;
@@ -86,75 +84,16 @@ public class BuanaCoffee {
 
                     if (loginBerhasil) {
                         System.out.println("Anda berhasil login sebagai " + role + "!");
-                        System.out.println("\nSelamat datang di Buana Coffee, " + usn + "!");
 
-                        if (role.equals("admin")) {
-                            System.out.println("1. Lihat Laporan Penjualan");
-                            System.out.println("2. Kelola Menu");
-                            System.out.print("3. Pilih Opsi : ");
-                            int pilihanAdmin = input.nextInt();
-                            input.nextLine();
 
-                            switch (pilihanAdmin) {
-                                case 1:
-                                    LaporanKeuangan laporan = new LaporanKeuangan("LP001", "Januari 2024"); //INI MASIH DATA TES TES AN
-                                    laporan.tampilkanLaporan();
-                                    break;
-                                case 2:
-                                    menu.tampilkanMenu();
-                                    System.out.println("\n=== Edit Menu ===");      //ADA RENCANA BUAT TAMBAH MENI / HAPUS MENU, TAPI KYKNNYA BAKAL BANYAK BGT -UPADANA MUNING-
-                                    System.out.println("Masukkan ID Menu yang ingin diedit : ");
-                                    String idMenu = input.nextLine();
-                                    System.out.println("Masukkan Nama Menu baru : ");
-                                    String namaMenu = input.nextLine();
-                                    System.out.println("Masukkan Harga Menu baru : ");  
-                                    double hargaMenu = input.nextDouble();
-                                    input.nextLine();
-                                    editMenu.editMenu(idMenu, namaMenu, hargaMenu);
-                                    
-                                    break;
-                                default:
-                                    System.out.println("Opsi tidak valid.");
-                                    break;
-                            }
-
-                        } else if (role.equals("pelanggan")) {   //INI BELUM SELESAI, MASIH HARUS DITAMBAH FITUR PESAN MENU
-                            System.out.println("1. Lihat Menu");
-                            System.out.println("2. Pesan Menu");
-                            System.out.println("3. Pilih Opsi : ");
-                            int pilihanPelanggan = input.nextInt();
-                            
-                            switch (pilihanPelanggan){
-                                case 1:
-                                    System.out.println("==Daftar Menu Buana Coffee");
-                                    menu.tampilkanMenu();
-                                    System.out.println("2. Pesan Menu");
-                                    System.out.println("3. Pilih Opsi : ");
-                                    pilihanPelanggan = input.nextInt();
-                                    break;
-                                case 2:
-                                    System.out.println("==Daftar Menu Buana Coffee");
-                                    menu.tampilkanMenu();
-                                    System.out.println("Masukkan ID Menu yang ingin dipesan : ");
-                                    String idMenuPesan = input.nextLine();
-                                    System.out.println("Masukkan jumlah pesanan : ");
-                                    int jumlahPesanan = input.nextInt();
-                                    input.nextLine();
-                                    System.out.println("Pesanan berhasil! Silakan lanjutkan ke pembayaran.");
-                                    break;
-                                default:
-                                    System.out.println("Opsi tidak valid.");
-                                    break;
-                            }
-                        }
-
+                        
                     } else {
                         System.out.println("Login GAGAL. Periksa kembali username, password, atau role.");
                     }
                     break;
 
                 case 0:
-                    System.out.println("Terimakasih sudah menggunakan layanan kami!");
+                    System.out.println("Bye!");
                     run = false;
                     break;
 
