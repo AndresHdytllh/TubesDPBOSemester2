@@ -21,7 +21,7 @@ public class BuanaCoffee {
         
         boolean run = true;
 
-        while (run) {
+        while (run) {            
             System.out.println("=== APLIKASI BUANA COFFEE ===");
 
             System.out.println("1. Register");
@@ -90,10 +90,10 @@ public class BuanaCoffee {
                         System.out.println("Anda berhasil login sebagai " + pilihanRole + "!");
                         System.out.println("\nSelamat datang di Buana Coffee, " + usn + "!");
 
-                        if (pilihanRole.equals("admin")) {
+                        if (pilihanRole.equals("admin")) {                      //INI MENU ADMIN
                             System.out.println("1. Lihat Laporan Penjualan");
                             System.out.println("2. Kelola Menu");
-                            System.out.print("3. Pilih Opsi : ");
+                            System.out.print("Pilih Opsi : ");
                             int pilihanAdmin = input.nextInt();
                             input.nextLine();
 
@@ -184,6 +184,7 @@ public class BuanaCoffee {
                                     System.out.println("Jumlah Orang : " + reservasi.getJumlahOrang());
                                     System.out.println("Status Meja : " + mejaDipilih.getStatusMeja());
                                     break;
+
                                 default:
                                     System.out.println("Opsi tidak valid.");
                                     break;
@@ -192,14 +193,16 @@ public class BuanaCoffee {
 
                     } else {
                         System.out.println("Login GAGAL. Periksa kembali username, password, atau role.");
-                        
+                        System.out.println("tes");
+                        System.out.println("bjjibi");
                     }
                     break;
 
                 case 0:
                     System.out.println("Terimakaish sudah menggunakan layanan kami :D");
                     run = false;
-                   
+                    System.out.println("commit");
+                    System.out.println("titit 2");
                     break;
 
                 default:
@@ -208,7 +211,7 @@ public class BuanaCoffee {
 
 
             }
-
+        
 
         }
         input.close();
