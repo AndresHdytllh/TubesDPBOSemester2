@@ -116,7 +116,7 @@ public class KelolaPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void idFilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFilActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_idFilActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -128,7 +128,57 @@ public class KelolaPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void simpanButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanButActionPerformed
-        // TODO add your handling code here:
+        String idMenu = idFil.getText();
+    String namaMenu = jTextField1.getText();
+    String hargaMenu = jTextField2.getText();
+
+    // 2. Validasi apakah ada kolom yang dibiarkan kosong
+    if (idMenu.trim().isEmpty() || namaMenu.trim().isEmpty() || hargaMenu.trim().isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Semua data (ID, Nama, Harga) harus diisi!");
+    } else {
+        try {
+            // 3. Ubah tipe data ID dan Harga dari String menjadi Integer (Angka)
+            int id = Integer.parseInt(idMenu);
+            int harga = Integer.parseInt(hargaMenu);
+
+            // 4. Koneksi ke Database db_buanacoffee
+            String url = "jdbc:mysql://localhost:3306/db_buanacoffee";
+            String userDB = "root";
+            String passDB = ""; 
+            java.sql.Connection conn = java.sql.DriverManager.getConnection(url, userDB, passDB);
+            
+            // 5. Query SQL untuk menambahkan data (INSERT)
+            String sql = "INSERT INTO menu (id, nama, harga) VALUES (?, ?, ?)";
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            
+            // Memasukkan nilai ke dalam tanda tanya (?) pada query
+            pst.setInt(1, id);
+            pst.setString(2, namaMenu);
+            pst.setInt(3, harga);
+            
+            // 6. Eksekusi query untuk menyimpan ke database
+            pst.executeUpdate(); // Gunakan executeUpdate() untuk INSERT, UPDATE, DELETE
+            
+            javax.swing.JOptionPane.showMessageDialog(this, "Data menu berhasil disimpan!");
+            
+            // 7. Reset isian textfield agar kembali kosong setelah berhasil disimpan
+            idFil.setText("");
+            jTextField1.setText("");
+            jTextField2.setText("");
+            idFil.requestFocus(); // Kembalikan kursor ke kolom ID
+            
+            // Tutup koneksi
+            pst.close();
+            conn.close();
+            
+        } catch (NumberFormatException e) {
+            // Menangkap error jika user memasukkan huruf pada kolom ID atau Harga
+            javax.swing.JOptionPane.showMessageDialog(this, "ID dan Harga harus berupa ANGKA!");
+        } catch (java.sql.SQLException e) {
+            // Menangkap error database (misal: ID sudah ada/duplikat)
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal menyimpan data! Error: " + e.getMessage());
+        }
+    }
     }//GEN-LAST:event_simpanButActionPerformed
 
     /**
