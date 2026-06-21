@@ -43,9 +43,4 @@ public class Meja {
         this.statusMeja = "Terisi";
         System.out.println("Meja " + noMeja + " telah dipesan.");
     }
-    
-    public void kosongkanMeja() {
-        this.statusMeja = "Kosong";
-        System.out.println("Meja " + noMeja + " telah dikosongkan.");
-    }
 }

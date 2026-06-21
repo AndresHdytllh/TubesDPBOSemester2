@@ -1,5 +1,6 @@
 package Main;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Database.EditMenu;
@@ -7,6 +8,8 @@ import Database.KatalogMenu;
 import Database.UserLogin;
 import Database.UserRegist;
 import LaporanPackage.LaporanKeuangan;
+import LaporanPackage.Meja;
+import MenuPackage.Reservasi;
 
 public class BuanaCoffee {
 
@@ -123,6 +126,69 @@ public class BuanaCoffee {
                             System.out.println("2. Pesan Menu");
                             System.out.println("3. Pilih Opsi : ");
                             int pilihanPelanggan = input.nextInt();
+                            
+                            switch (pilihanPelanggan){
+                                case 1:
+                                    System.out.println("==Daftar Menu Buana Coffee");
+                                    menu.tampilkanMenu();
+                                    System.out.println("2. Pesan Menu");
+                                    System.out.println("3. Pilih Opsi : ");
+                                    pilihanPelanggan = input.nextInt();
+                                    break;
+                                case 2:
+                                    System.out.println("==Daftar Menu Buana Coffee");
+                                    menu.tampilkanMenu();
+                                    System.out.println("Masukkan ID Menu yang ingin dipesan : ");
+                                    String idMenuPesan = input.nextLine();
+                                    System.out.println("Masukkan jumlah pesanan : ");
+                                    int jumlahPesanan = input.nextInt();
+                                    input.nextLine();
+
+                                    ArrayList<Meja> daftarMeja = new ArrayList<>();
+
+                                    for (int i = 1; i <= 10; i++) {
+                                        daftarMeja.add(new Meja(i, 4));
+                                    }
+
+                                    System.out.println("\n=== DAFTAR MEJA ===");
+                                    for (Meja meja : daftarMeja) {
+                                        System.out.println("Meja " + meja.getNoMeja() + " | Kapasitas : " + meja.getKapasitas() + " | Status : " + meja.getStatusMeja());
+                                    }
+
+                                    System.out.print("\nPilih nomor meja (1-10): ");
+                                    int nomorMeja = input.nextInt();
+
+                                    if (nomorMeja < 1 || nomorMeja > 10) {
+                                        System.out.println("Nomor meja tidak valid!");
+                                        break;
+                                    }
+
+                                    input.nextLine();
+
+                                    System.out.print("Masukkan ID Reservasi: ");
+                                    String idReservasi = input.nextLine();
+
+                                    System.out.print("Masukkan Jumlah Orang: ");
+                                    int jumlahOrang = input.nextInt();
+                                    input.nextLine();
+
+                                    Reservasi reservasi = new Reservasi(idReservasi, jumlahOrang);
+
+                                    Meja mejaDipilih = daftarMeja.get(nomorMeja - 1);
+                                    mejaDipilih.pesanMeja();
+
+                                    System.out.println("Pesanan berhasil! Silakan lanjutkan ke pembayaran.");
+
+                                    System.out.println("\n=== RESERVASI ===");
+                                    System.out.println("Nomor Meja : " + nomorMeja);
+                                    System.out.println("ID Reservasi : " + reservasi.getIdReservasi());
+                                    System.out.println("Jumlah Orang : " + reservasi.getJumlahOrang());
+                                    System.out.println("Status Meja : " + mejaDipilih.getStatusMeja());
+                                    break;
+                                default:
+                                    System.out.println("Opsi tidak valid.");
+                                    break;
+                            }
                         }
 
                     } else {
