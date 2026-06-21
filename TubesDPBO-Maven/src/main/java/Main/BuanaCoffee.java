@@ -22,11 +22,6 @@ public class BuanaCoffee {
         boolean run = true;
 
         while (run) {
-
-            
-            
-
-            
             System.out.println("=== APLIKASI BUANA COFFEE ===");
 
             System.out.println("1. Register");

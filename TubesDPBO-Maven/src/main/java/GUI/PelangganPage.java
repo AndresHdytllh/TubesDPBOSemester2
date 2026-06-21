@@ -2,20 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Main;
+package GUI;
 
 /**
  *
  * @author lenovo
  */
-public class AdminPage extends javax.swing.JFrame {
+public class PelangganPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AdminPage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PelangganPage.class.getName());
 
     /**
-     * Creates new form AdminPage
+     * Creates new form PelangganPage
      */
-    public AdminPage() {
+    public PelangganPage() {
         initComponents();
     }
 
@@ -66,7 +66,7 @@ public class AdminPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new AdminPage().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new PelangganPage().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
