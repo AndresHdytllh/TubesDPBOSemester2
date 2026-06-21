@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package Main;
 
 /**
  *
@@ -16,7 +17,7 @@ public class LandingPage extends javax.swing.JFrame {
      */
     public LandingPage() {
         initComponents();
-        
+        setSize(1366,768);
         setLocationRelativeTo(null);
     }
 
@@ -29,81 +30,82 @@ public class LandingPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tittle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         registBut = new javax.swing.JButton();
-        loginBut = new javax.swing.JButton();
         keluarBut = new javax.swing.JButton();
+        loginBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 153, 153));
 
-        tittle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        tittle.setText("APLIKASI BUANA COFFEE");
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setText("APLIKASI BUANA COFFEE");
 
         registBut.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        registBut.setText("REGIST");
+        registBut.setText("Register");
         registBut.addActionListener(this::registButActionPerformed);
-
-        loginBut.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        loginBut.setText("LOGIN");
-        loginBut.addActionListener(this::loginButActionPerformed);
 
         keluarBut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         keluarBut.setText("Keluar");
         keluarBut.addActionListener(this::keluarButActionPerformed);
 
+        loginBut.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        loginBut.setText("Login");
+        loginBut.addActionListener(this::loginButActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(560, 560, 560))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tittle)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(registBut)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(loginBut))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(keluarBut)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(137, 137, 137)
+                .addComponent(keluarBut)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(357, 357, 357)
+                .addComponent(registBut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 432, Short.MAX_VALUE)
+                .addComponent(loginBut)
+                .addGap(416, 416, 416))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(tittle)
-                .addGap(66, 66, 66)
+                .addGap(98, 98, 98)
+                .addComponent(jLabel1)
+                .addGap(92, 92, 92)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registBut)
                     .addComponent(loginBut))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 401, Short.MAX_VALUE)
                 .addComponent(keluarBut)
-                .addContainerGap())
+                .addGap(70, 70, 70))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButActionPerformed
-        LoginPage login = new LoginPage();
-        login.setVisible(true);
-        this.dispose();
-// TODO add your handling code here:
-    }//GEN-LAST:event_loginButActionPerformed
-
     private void registButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registButActionPerformed
         RegistPage regist = new RegistPage();
         regist.setVisible(true);
         this.dispose();
-        // TODO add your handling code here:
+        
+        
+             // TODO add your handling code here:
     }//GEN-LAST:event_registButActionPerformed
 
+    private void loginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButActionPerformed
+        LoginPage login = new LoginPage();
+        login.setVisible(true);
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginButActionPerformed
+
     private void keluarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarButActionPerformed
-        System.exit(0);
+        System.exit(0); 
 // TODO add your handling code here:
     }//GEN-LAST:event_keluarButActionPerformed
 
@@ -133,9 +135,9 @@ public class LandingPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton keluarBut;
     private javax.swing.JButton loginBut;
     private javax.swing.JButton registBut;
-    private javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables
 }
