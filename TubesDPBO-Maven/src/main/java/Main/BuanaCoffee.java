@@ -3,6 +3,7 @@ package Main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Database.CatatLaporanKeuanganDB;
 import Database.EditMenu;
 import Database.KatalogMenu;
 import Database.UserLogin;
@@ -10,6 +11,7 @@ import Database.UserRegist;
 import LaporanPackage.LaporanKeuangan;
 import LaporanPackage.Meja;
 import MenuPackage.Reservasi;
+import PesananPackage.Pesanan;
 
 public class BuanaCoffee {
 
@@ -18,10 +20,11 @@ public class BuanaCoffee {
         Scanner input = new Scanner(System.in);
         KatalogMenu menu = new KatalogMenu();
         EditMenu editMenu = new EditMenu();
-        
+        CatatLaporanKeuanganDB laporanDB = new CatatLaporanKeuanganDB();
+
         boolean run = true;
 
-        while (run) {            
+        while (run) {
             System.out.println("=== APLIKASI BUANA COFFEE ===");
 
             System.out.println("1. Register");
@@ -30,7 +33,7 @@ public class BuanaCoffee {
             System.out.print("Pilih opsi: ");
 
             int pilihan = input.nextInt();
-            input.nextLine(); 
+            input.nextLine();
 
             switch (pilihan) {
                 case 1:
@@ -42,10 +45,10 @@ public class BuanaCoffee {
                     String pw = input.nextLine();
 
                     System.out.println("Sedang memproses registrasi...");
-                    
+
                     UserRegist userregist = new UserRegist(usn, pw);
                     userregist.setRole("pelanggan");
-                    
+
                     boolean berhasil = userregist.registerUser();
 
                     if (berhasil) {
@@ -55,8 +58,7 @@ public class BuanaCoffee {
                         System.out.println("Registrasi GAGAL. Periksa kembali koneksi atau ketersediaan username.");
                     }
                     break;
-                    
-                    
+
                 case 2:
                     System.out.println("Login sebagai?");
                     System.out.println("1. Admin");
@@ -81,7 +83,7 @@ public class BuanaCoffee {
                     pw = input.nextLine();
 
                     System.out.println("Sedang memproses login...");
-                    
+
                     UserLogin userlogin = new UserLogin(usn, pw, pilihanRole);
 
                     boolean loginBerhasil = userlogin.loginUser();
@@ -109,7 +111,7 @@ public class BuanaCoffee {
                                     String idMenu = input.nextLine();
                                     System.out.println("Masukkan Nama Menu baru : ");
                                     String namaMenu = input.nextLine();
-                                    System.out.println("Masukkan Harga Menu baru : ");  
+                                    System.out.println("Masukkan Harga Menu baru : ");
                                     double hargaMenu = input.nextDouble();
                                     input.nextLine();
                                     editMenu.editMenu(idMenu, namaMenu, hargaMenu);
@@ -120,28 +122,28 @@ public class BuanaCoffee {
                                     break;
                             }
 
-                        } else if (pilihanRole.equals("pelanggan")) {   //INI BELUM SELESAI, MASIH HARUS DITAMBAH FITUR PESAN MENU
+                        } else if (pilihanRole.equals("pelanggan")) {   //INI BELUM SELESAI, MASIH HARUS DITAMBAH FITUR PESAN MENU // INI MENU PELANGGAN
                             System.out.println("1. Lihat Menu");
                             System.out.println("2. Pesan Menu");
-                            System.out.println("3. Pilih Opsi : ");
+                            System.out.println("Pilih Opsi : ");
                             int pilihanPelanggan = input.nextInt();
 
-                            switch (pilihanPelanggan){
+                            switch (pilihanPelanggan) {
                                 case 1:
-                                    System.out.println("==Daftar Menu Buana Coffee");
                                     menu.tampilkanMenu();
                                     System.out.println("2. Pesan Menu");
-                                    System.out.println("3. Pilih Opsi : ");
+                                    System.out.println("Pilih Opsi : ");
                                     pilihanPelanggan = input.nextInt();
                                     break;
                                 case 2:
-                                    System.out.println("==Daftar Menu Buana Coffee");
                                     menu.tampilkanMenu();
                                     System.out.println("Masukkan ID Menu yang ingin dipesan : ");
                                     String idMenuPesan = input.nextLine();
                                     System.out.println("Masukkan jumlah pesanan : ");
                                     int jumlahPesanan = input.nextInt();
                                     input.nextLine();
+                                    Pesanan pesanan = new Pesanan(idMenuPesan, jumlahPesanan);
+                                    pesanan.tambahItem(idMenuPesan, jumlahPesanan);
 
                                     ArrayList<Meja> daftarMeja = new ArrayList<>();
 
@@ -193,8 +195,6 @@ public class BuanaCoffee {
 
                     } else {
                         System.out.println("Login GAGAL. Periksa kembali username, password, atau role.");
-                        System.out.println("tes");
-                        System.out.println("bjjibi");
                     }
                     break;
 
@@ -209,9 +209,7 @@ public class BuanaCoffee {
                     System.out.println("Opsi tidak valid, silakan coba lagi.");
                     break;
 
-
             }
-        
 
         }
         input.close();

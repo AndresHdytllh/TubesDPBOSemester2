@@ -12,12 +12,10 @@ public class Pesanan {
 
     private String idPesanan;
     private double totalHarga;
-    private String status;
 
-    public Pesanan(String idPesanan) {
+    public Pesanan(String idPesanan, int jumlahPesanan) {
         this.idPesanan = idPesanan;
         this.totalHarga = 0;
-        this.status = "MENUNGGU";
     }
 
     public String getIdPesanan() {
@@ -32,20 +30,8 @@ public class Pesanan {
         return totalHarga;
     }
 
-    public void setTotalHarga(double total) {
-        this.totalHarga = total;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String s) {
-        this.status = s;
-    }
-
-    public void tambahItem(String namaItem, int qty) {
-        System.out.println(qty + " x " + namaItem + " ditambahkan.");
+    public void tambahItem(String namaItem, int jumlahPesanan) {
+        System.out.println(jumlahPesanan + " x " + namaItem + " ditambahkan.");
     }
 
     public double hitungTotal() {

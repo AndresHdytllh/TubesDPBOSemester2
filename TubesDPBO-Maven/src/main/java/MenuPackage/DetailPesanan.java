@@ -8,7 +8,7 @@ package MenuPackage;
  *
  * @author lenovo
  */
-public class DetailPesanan extends Menu{
+public class DetailPesanan extends Menu {
 
     private int quantity;
     private double subtotal;
