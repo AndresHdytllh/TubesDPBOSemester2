@@ -192,16 +192,14 @@ public class BuanaCoffee {
 
                     } else {
                         System.out.println("Login GAGAL. Periksa kembali username, password, atau role.");
-                        System.out.println("tes");
-                        System.out.println("bjjibi");
+                        
                     }
                     break;
 
                 case 0:
                     System.out.println("Terimakaish sudah menggunakan layanan kami :D");
                     run = false;
-                    System.out.println("commit");
-                    System.out.println("titit 2 punya moning");
+                   
                     break;
 
                 default:
