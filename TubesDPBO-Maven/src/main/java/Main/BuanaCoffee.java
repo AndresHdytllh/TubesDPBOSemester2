@@ -11,7 +11,6 @@ import Database.UserRegist;
 import LaporanPackage.LaporanKeuangan;
 import LaporanPackage.Meja;
 import MenuPackage.Reservasi;
-import PesananPackage.Pesanan;
 
 public class BuanaCoffee {
 
@@ -125,13 +124,15 @@ public class BuanaCoffee {
                         } else if (pilihanRole.equals("pelanggan")) {   //INI BELUM SELESAI, MASIH HARUS DITAMBAH FITUR PESAN MENU // INI MENU PELANGGAN
                             System.out.println("1. Lihat Menu");
                             System.out.println("2. Pesan Menu");
+                            System.out.println("3. Reservasi Meja");
                             System.out.println("Pilih Opsi : ");
                             int pilihanPelanggan = input.nextInt();
 
                             switch (pilihanPelanggan) {
                                 case 1:
                                     menu.tampilkanMenu();
-                                    System.out.println("2. Pesan Menu");
+                                    System.out.println("1. Pesan Menu");
+                                    System.out.println("2. Reservasi Meja");
                                     System.out.println("Pilih Opsi : ");
                                     pilihanPelanggan = input.nextInt();
                                     break;
@@ -142,9 +143,12 @@ public class BuanaCoffee {
                                     System.out.println("Masukkan jumlah pesanan : ");
                                     int jumlahPesanan = input.nextInt();
                                     input.nextLine();
-                                    Pesanan pesanan = new Pesanan(idMenuPesan, jumlahPesanan);
-                                    pesanan.tambahItem(idMenuPesan, jumlahPesanan);
 
+                                    System.out.println("Pesanan berhasil! Silakan lanjutkan ke pembayaran.");
+
+                                    break;
+
+                                case 3:
                                     ArrayList<Meja> daftarMeja = new ArrayList<>();
 
                                     for (int i = 1; i <= 10; i++) {
@@ -177,8 +181,6 @@ public class BuanaCoffee {
 
                                     Meja mejaDipilih = daftarMeja.get(nomorMeja - 1);
                                     mejaDipilih.pesanMeja();
-
-                                    System.out.println("Pesanan berhasil! Silakan lanjutkan ke pembayaran.");
 
                                     System.out.println("\n=== RESERVASI ===");
                                     System.out.println("Nomor Meja : " + nomorMeja);

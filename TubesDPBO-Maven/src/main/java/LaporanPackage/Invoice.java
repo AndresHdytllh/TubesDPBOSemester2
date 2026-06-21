@@ -1,5 +1,6 @@
 package LaporanPackage;
 
+import MenuPackage.DetailPesanan;
 import PesananPackage.Pesanan;
 
 /**
@@ -7,10 +8,11 @@ import PesananPackage.Pesanan;
  * @author lenovo
  */
 public class Invoice {
+
     private String idInvoice;
     private Pesanan pesanan;
     private double totalBayar;
-    private String metodePembayaran; 
+    private String metodePembayaran;
 
     public Invoice(String idInvoice, Pesanan pesanan, String metodePembayaran) {
         this.idInvoice = idInvoice;
@@ -49,15 +51,21 @@ public class Invoice {
     }
 
     public void cetakInvoice() {
-        System.out.println("=================================");
-        System.out.println("         INVOICE PEMBAYARAN      ");
-        System.out.println("=================================");
         System.out.println("ID Invoice   : " + idInvoice);
         System.out.println("ID Pesanan   : " + pesanan.getIdPesanan());
         System.out.println("Metode       : " + metodePembayaran);
         System.out.println("Status       : " + pesanan.getStatus());
-        System.out.println("---------------------------------");
+
+        System.out.println("RINCIAN PESANAN:");
+        if (pesanan.getDaftarItem().isEmpty()) {
+            System.out.println("Tidak ada item pesanan.");
+        } else {
+            for (DetailPesanan item : pesanan.getDaftarItem()) {
+
+                System.out.printf("Rp %.2f%n", item.getQuantity(), item.getNamaProduk(), item.getSubtotal());
+            }
+        }
+
         System.out.printf("TOTAL BAYAR  : Rp %.2f%n", totalBayar);
-        System.out.println("=================================");
     }
 }
