@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package Main;
 
 /**
  *
@@ -16,8 +17,10 @@ public class RegistPage extends javax.swing.JFrame {
      */
     public RegistPage() {
         initComponents();
+        setSize(1366,768);
         setLocationRelativeTo(null);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,21 +31,26 @@ public class RegistPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD:TubesDPBO-Maven/src/main/java/RegistPage.java
         registTit = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
+=======
+        jLabel1 = new javax.swing.JLabel();
+        backBut = new javax.swing.JButton();
+>>>>>>> parent of 38aae1d (gui 1):TubesDPBO-Maven/src/main/java/Main/RegistPage.java
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        registTit.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        registTit.setText("REGISTRASI");
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setText("REGISTER");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton1.setText("Kembali");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        backBut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        backBut.setText("Kembali");
+        backBut.addActionListener(this::backButActionPerformed);
 
         jLabel1.setText("Username:");
 
@@ -56,7 +64,12 @@ public class RegistPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(740, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(532, 532, 532))
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD:TubesDPBO-Maven/src/main/java/RegistPage.java
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
@@ -69,10 +82,16 @@ public class RegistPage extends javax.swing.JFrame {
                     .addComponent(jTextField1)
                     .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                 .addContainerGap(60, Short.MAX_VALUE))
+=======
+                .addGap(171, 171, 171)
+                .addComponent(backBut)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> parent of 38aae1d (gui 1):TubesDPBO-Maven/src/main/java/Main/RegistPage.java
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD:TubesDPBO-Maven/src/main/java/RegistPage.java
                 .addGap(34, 34, 34)
                 .addComponent(registTit)
                 .addGap(29, 29, 29)
@@ -86,17 +105,24 @@ public class RegistPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
+=======
+                .addGap(100, 100, 100)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 563, Short.MAX_VALUE)
+                .addComponent(backBut)
+                .addGap(42, 42, 42))
+>>>>>>> parent of 38aae1d (gui 1):TubesDPBO-Maven/src/main/java/Main/RegistPage.java
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        LandingPage landing = new LandingPage();
-        landing.setVisible(true);
+    private void backButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButActionPerformed
+        LandingPage home = new LandingPage();
+        home.setVisible(true);
         this.dispose();
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_backButActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -132,11 +158,16 @@ public class RegistPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD:TubesDPBO-Maven/src/main/java/RegistPage.java
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel registTit;
+=======
+    private javax.swing.JButton backBut;
+    private javax.swing.JLabel jLabel1;
+>>>>>>> parent of 38aae1d (gui 1):TubesDPBO-Maven/src/main/java/Main/RegistPage.java
     // End of variables declaration//GEN-END:variables
 }

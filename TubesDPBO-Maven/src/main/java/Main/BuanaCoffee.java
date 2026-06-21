@@ -20,11 +20,13 @@ public class BuanaCoffee {
         EditMenu editMenu = new EditMenu();
         
         boolean run = true;
-        String role = input.nextLine();
 
         while (run) {
 
-         
+            
+            
+
+            
             System.out.println("=== APLIKASI BUANA COFFEE ===");
 
             System.out.println("1. Register");
