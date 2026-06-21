@@ -236,6 +236,7 @@ public class AdminLog extends javax.swing.JFrame {
                 passFilAdmin.requestFocus();
             }
             
+            
             conn.close();
         } catch (java.sql.SQLException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
