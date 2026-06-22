@@ -85,7 +85,7 @@ public class AdminHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void kelolaMenuButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kelolaMenuButActionPerformed
-        KelolaPage kelola = new KelolaPage();
+        KelolaUangPage kelola = new KelolaUangPage();
         kelola.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_kelolaMenuButActionPerformed
