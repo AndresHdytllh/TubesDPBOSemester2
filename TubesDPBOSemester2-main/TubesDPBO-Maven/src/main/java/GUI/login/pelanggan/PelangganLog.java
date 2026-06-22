@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI.login.pelanggan;
-
 import GUI.login.LoginPage;
 
 /**
@@ -19,6 +18,7 @@ public class PelangganLog extends javax.swing.JFrame {
      */
     public PelangganLog() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -108,7 +108,51 @@ public class PelangganLog extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void masukButPelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukButPelActionPerformed
-        // TODO add your handling code here:
+        // 1. Ambil inputan dari GUI
+        String username = usnFilPel.getText();
+        String password = new String(passFilPel.getPassword()); 
+
+        // 2. Validasi jika form kosong
+        if (username.trim().isEmpty() || password.trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Username dan Password tidak boleh kosong!", "Peringatan", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return; // Hentikan proses jika kosong
+        }
+
+        // 3. BENTUK OBJEK PELANGGAN
+        // Parameter: idUser, username, password, poinMember
+        // ID dikosongkan (""), poinMember diset 0 sementara karena database 
+        // hanya butuh username, password, dan role untuk verifikasi login.
+        UserPackage.Pelanggan pelangganUser = new UserPackage.Pelanggan("", username, password, 0);
+
+        // 4. Panggil class UserLogin untuk cek database
+        Database.UserLogin prosesLogin = new Database.UserLogin();
+        
+        // Cek login menggunakan objek pelangganUser. 
+        // Method ini otomatis memanggil getRole() yang bernilai "Pelanggan".
+        boolean isSuccess = prosesLogin.loginUser(pelangganUser);
+
+        // 5. Logika if-else penentuan hasil login
+        if (isSuccess) {
+            // JIKA BENAR: Masuk ke halaman Home Pelanggan
+            javax.swing.JOptionPane.showMessageDialog(this, "Login Berhasil! Selamat datang, " + username + ".", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            PelangganHome pelHome = new PelangganHome(username);
+            pelHome.setVisible(true);
+            this.dispose();
+            // TODO: Buka halaman utama Pelanggan (Pastikan class PelangganHome sudah dibuat)
+            // PelangganHome home = new PelangganHome();
+            // home.setVisible(true);
+            
+            this.dispose(); // Tutup halaman login
+
+        } else {
+            // JIKA SALAH: Muncul notif usn/pw/role salah
+            javax.swing.JOptionPane.showMessageDialog(this, "Login Gagal! Username, Password salah, atau Anda bukan Pelanggan.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+
+            // Reset isian field
+            usnFilPel.setText("");   
+            passFilPel.setText("");  
+            usnFilPel.requestFocus(); // Kembalikan kursor ke kolom username
+        }
     }//GEN-LAST:event_masukButPelActionPerformed
 
     private void kembaliButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliButActionPerformed

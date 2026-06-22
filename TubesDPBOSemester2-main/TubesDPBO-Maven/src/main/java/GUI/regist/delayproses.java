@@ -17,6 +17,7 @@ public class delayproses extends javax.swing.JFrame {
      */
     public delayproses() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

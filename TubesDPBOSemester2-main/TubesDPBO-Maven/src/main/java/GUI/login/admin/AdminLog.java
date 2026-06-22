@@ -21,6 +21,7 @@ public class AdminLog extends javax.swing.JFrame {
      */
     public AdminLog() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -115,56 +116,42 @@ public class AdminLog extends javax.swing.JFrame {
         String username = usnFilAdmin.getText();
         String password = new String(passFilAdmin.getPassword()); 
 
-        // 2. Cek apakah ada field yang dibiarkan kosong
+        // 2. Validasi jika form kosong
         if (username.trim().isEmpty() || password.trim().isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Username dan Password tidak boleh kosong!");
+            javax.swing.JOptionPane.showMessageDialog(this, "Username dan Password tidak boleh kosong!", "Peringatan", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return; // Hentikan proses jika kosong
+        }
+
+        // 3. BENTUK OBJEK ADMIN
+        // Parameter: idUser, username, password, tingkatAkses
+        // ID dan tingkatAkses bisa dikosongkan/diisi default sementara karena 
+        // database hanya butuh username, password, dan role untuk login.
+        UserPackage.Admin adminUser = new UserPackage.Admin("", username, password, "SuperAdmin");
+
+        // 4. Panggil class UserLogin untuk cek database
+        Database.UserLogin prosesLogin = new Database.UserLogin();
+        
+        // Cek login menggunakan objek adminUser. 
+        // Method ini akan otomatis mengambil .getRole() yang bernilai "Admin".
+        boolean isSuccess = prosesLogin.loginUser(adminUser);
+
+        // 5. Logika if-else penentuan hasil login
+        if (isSuccess) {
+            // JIKA BENAR: Masuk ke AdminHome
+            javax.swing.JOptionPane.showMessageDialog(this, "Login Berhasil! Selamat datang Admin.", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            AdminHome adminHome = new AdminHome();
+            adminHome.setVisible(true);
+            this.dispose(); // Tutup halaman login
+
         } else {
-            try {
-                // 3. Koneksi ke Database db_buanacoffee
-                String url = "jdbc:mysql://localhost:3306/db_buanacoffee";
-                String userDB = "root";
-                String passDB = ""; 
-                java.sql.Connection conn = java.sql.DriverManager.getConnection(url, userDB, passDB);
+            // JIKA SALAH: Muncul notif usn/pw/role salah
+            javax.swing.JOptionPane.showMessageDialog(this, "Login Gagal! Username, Password salah, atau Anda bukan Admin.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
 
-                // 4. Query untuk mencocokkan username, password, dan memastikan role = 'admin'
-                String sql = "SELECT * FROM users WHERE username = ? AND password = ? AND role = 'admin'";
-                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
-                pst.setString(1, username);
-                pst.setString(2, password);
-
-                java.sql.ResultSet rs = pst.executeQuery();
-
-                // 5. Logika if-else penentuan hasil login
-                if (rs.next()) {
-                    // JIKA BENAR: Masuk ke AdminHome
-                    javax.swing.JOptionPane.showMessageDialog(this, "Login Berhasil!");
-
-                    AdminHome admin = new AdminHome();
-                    admin.setVisible(true);
-                    this.dispose(); 
-
-                } else {
-                    // JIKA SALAH: Muncul notif usn/pw salah
-                    javax.swing.JOptionPane.showMessageDialog(this, "Username atau Password salah!");
-
-                    // =======================================================
-                    // INI ADALAH BAGIAN UNTUK MERESET FIELD YANG DIISI
-                    // =======================================================
-                    usnFilAdmin.setText("");   // Mengosongkan isian Username
-                    passFilAdmin.setText("");  // Mengosongkan isian Password
-
-                    // Mengembalikan kursor berkedip ke kolom username
-                    usnFilAdmin.requestFocus();
-                }
-
-                // 6. Tutup koneksi database
-                rs.close();
-                pst.close();
-                conn.close();
-
-            } catch (java.sql.SQLException e) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Error Koneksi Database: " + e.getMessage());
-            }
+            // Reset isian field
+            usnFilAdmin.setText("");   
+            passFilAdmin.setText("");  
+            usnFilAdmin.requestFocus(); // Kembalikan kursor ke kolom username
         }
     }//GEN-LAST:event_masukButActionPerformed
 

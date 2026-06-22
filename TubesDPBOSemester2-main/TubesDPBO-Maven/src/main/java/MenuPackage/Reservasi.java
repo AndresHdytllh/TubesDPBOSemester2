@@ -1,24 +1,27 @@
 package MenuPackage;
 
-/**
- * PERBAIKAN: Ditambahkan referensi ke Meja sehingga Reservasi terhubung secara
- * eksplisit dengan meja yang dipesan, dan bisa langsung mengubah status meja
- * saat reservasi dikonfirmasi.
- */
 public class Reservasi {
 
     private String idReservasi;
+    private String namaPelanggan;
     private int jumlahOrang;
-    private Meja meja;        // asosiasi ke Meja
+    private Meja meja; 
 
-    public Reservasi(String idReservasi, int jumlahOrang, Meja meja) {
+   
+    public Reservasi(String idReservasi, String namaPelanggan, int jumlahOrang, Meja meja) {
         this.idReservasi = idReservasi;
+        this.namaPelanggan = namaPelanggan;
         this.jumlahOrang = jumlahOrang;
         this.meja = meja;
     }
 
+    // Getter
     public String getIdReservasi() {
         return idReservasi;
+    }
+
+    public String getNamaPelanggan() {
+        return namaPelanggan;
     }
 
     public int getJumlahOrang() {
@@ -29,8 +32,13 @@ public class Reservasi {
         return meja;
     }
 
+    // Setter
     public void setIdReservasi(String id) {
         this.idReservasi = id;
+    }
+
+    public void setNamaPelanggan(String nama) {
+        this.namaPelanggan = nama;
     }
 
     public void setJumlahOrang(int jumlah) {
@@ -41,12 +49,12 @@ public class Reservasi {
         this.meja = meja;
     }
 
-    /**
-     * Konfirmasi reservasi: tandai meja sebagai terisi.
-     */
+    // Method Operasional
     public void konfirmasiReservasi() {
         meja.pesanMeja();
-        System.out.println("Reservasi " + idReservasi
-                + " dikonfirmasi untuk " + jumlahOrang + " orang.");
+
+        // ini buat Print ke console sebagai log sistem
+        System.out.println("Reservasi " + idReservasi + " oleh " + namaPelanggan
+                + " dikonfirmasi untuk " + jumlahOrang + " orang di Meja " + meja.getNoMeja() + ".");
     }
 }

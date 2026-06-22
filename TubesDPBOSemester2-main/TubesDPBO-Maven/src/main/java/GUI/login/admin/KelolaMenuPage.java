@@ -8,13 +8,14 @@ package GUI.login.admin;
  *
  * @author Axioo Pongo
  */
-public class KelolaUangPage extends javax.swing.JFrame {
+public class KelolaMenuPage extends javax.swing.JFrame {
 
     /**
      * Creates new form KelolaUangPage
      */
-    public KelolaUangPage() {
+    public KelolaMenuPage() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -225,20 +226,21 @@ public class KelolaUangPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(KelolaUangPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelolaMenuPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(KelolaUangPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelolaMenuPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(KelolaUangPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelolaMenuPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(KelolaUangPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelolaMenuPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new KelolaUangPage().setVisible(true);
+                new KelolaMenuPage().setVisible(true);
             }
         });
     }

@@ -17,6 +17,7 @@ public class registberhasil extends javax.swing.JFrame {
      */
     public registberhasil() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

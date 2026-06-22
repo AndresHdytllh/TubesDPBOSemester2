@@ -20,6 +20,7 @@ public class LandingPage extends javax.swing.JFrame {
      */
     public LandingPage() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

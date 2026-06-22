@@ -17,6 +17,7 @@ public class registgagal extends javax.swing.JFrame {
      */
     public registgagal() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
