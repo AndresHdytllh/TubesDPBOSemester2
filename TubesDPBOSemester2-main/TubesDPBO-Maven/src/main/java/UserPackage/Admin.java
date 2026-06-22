@@ -1,19 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package UserPackage;
 
+public class Admin extends User {
 
-
-/**
- *
- * @author lenovo
- */
-public class Admin extends User{
     private String tingkatAkses;
 
-    public Admin(String idUser, String username, String password,String tingkatAkses) {
+    public Admin(String idUser, String username, String password, String tingkatAkses) {
         super(idUser, username, password);
         this.tingkatAkses = tingkatAkses;
     }
@@ -22,10 +13,10 @@ public class Admin extends User{
         return tingkatAkses;
     }
 
-    public void setTingkatAkses(String tingkatAkses) {
-        this.tingkatAkses = tingkatAkses;
+    public void setTingkatAkses(String akses) {
+        this.tingkatAkses = akses;
     }
-    
+
     @Override
     public String getRole() {
         return "Admin";
@@ -33,17 +24,13 @@ public class Admin extends User{
 
     @Override
     public boolean login(String username, String password) {
-        boolean validasi = false;
-        if(getRole().equals("Admin") && username.equals(getUsername())
-                && password.equals(getPassword())){
-            validasi = true;
-        }
-        return validasi;
+        return getRole().equals("Admin")
+                && username.equals(getUsername())
+                && password.equals(getPassword());
     }
 
     @Override
     public void logout() {
         System.out.println("Anda Telah Logout Sebagai Admin");
     }
-
 }

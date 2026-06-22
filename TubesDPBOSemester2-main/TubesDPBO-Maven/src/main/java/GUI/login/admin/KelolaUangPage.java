@@ -6,16 +6,14 @@ package GUI.login.admin;
 
 /**
  *
- * @author lenovo
+ * @author Axioo Pongo
  */
-public class KelolaPage extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(KelolaPage.class.getName());
+public class KelolaUangPage extends javax.swing.JFrame {
 
     /**
-     * Creates new form KelolaPage
+     * Creates new form KelolaUangPage
      */
-    public KelolaPage() {
+    public KelolaUangPage() {
         initComponents();
     }
 
@@ -30,116 +28,125 @@ public class KelolaPage extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        idFil = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        idFil = new javax.swing.JTextField();
+        namaMenu = new javax.swing.JTextField();
+        hargaMenu = new javax.swing.JTextField();
         simpanBut = new javax.swing.JButton();
         kembaliBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Kelola Menu");
 
-        jLabel2.setText("Masukan ID Menu");
-
-        idFil.addActionListener(this::idFilActionPerformed);
+        jLabel2.setText("Masukan ID menu:");
 
         jLabel3.setText("Nama menu baru:");
 
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
-
         jLabel4.setText("Harga menu baru:");
 
-        jTextField2.addActionListener(this::jTextField2ActionPerformed);
+        idFil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idFilActionPerformed(evt);
+            }
+        });
 
-        simpanBut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        namaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namaMenuActionPerformed(evt);
+            }
+        });
+
+        hargaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hargaMenuActionPerformed(evt);
+            }
+        });
+
+        simpanBut.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         simpanBut.setText("Simpan");
-        simpanBut.addActionListener(this::simpanButActionPerformed);
+        simpanBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simpanButActionPerformed(evt);
+            }
+        });
 
         kembaliBut.setText("Kembali");
+        kembaliBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kembaliButActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(simpanBut, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
+                        .addGap(155, 155, 155)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(idFil, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                            .addComponent(jTextField1)))
-                    .addComponent(kembaliBut, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(idFil, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(namaMenu)
+                            .addComponent(hargaMenu)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(simpanBut, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(kembaliBut, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(idFil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel3)
+                    .addComponent(namaMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(hargaMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addComponent(simpanBut)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(kembaliBut))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(kembaliBut)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void idFilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFilActionPerformed
-        
-    }//GEN-LAST:event_idFilActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void simpanButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanButActionPerformed
         String idMenu = idFil.getText();
-    String namaMenu = jTextField1.getText();
-    String hargaMenu = jTextField2.getText();
-
-    // 2. Validasi apakah ada kolom yang dibiarkan kosong
-    if (idMenu.trim().isEmpty() || namaMenu.trim().isEmpty() || hargaMenu.trim().isEmpty()) {
+        String namaM = namaMenu.getText();
+        String hargaM = hargaMenu.getText();
+        
+        if (idMenu.trim().isEmpty() || namaM.trim().isEmpty() || hargaM.trim().isEmpty()) {
         javax.swing.JOptionPane.showMessageDialog(this, "Semua data (ID, Nama, Harga) harus diisi!");
     } else {
         try {
             // 3. Ubah tipe data ID dan Harga dari String menjadi Integer (Angka)
             int id = Integer.parseInt(idMenu);
-            int harga = Integer.parseInt(hargaMenu);
+            int harga = Integer.parseInt(hargaM);
 
             // 4. Koneksi ke Database db_buanacoffee
             String url = "jdbc:mysql://localhost:3306/db_buanacoffee";
@@ -153,7 +160,7 @@ public class KelolaPage extends javax.swing.JFrame {
             
             // Memasukkan nilai ke dalam tanda tanya (?) pada query
             pst.setInt(1, id);
-            pst.setString(2, namaMenu);
+            pst.setString(2, namaM);
             pst.setInt(3, harga);
             
             // 6. Eksekusi query untuk menyimpan ke database
@@ -163,8 +170,8 @@ public class KelolaPage extends javax.swing.JFrame {
             
             // 7. Reset isian textfield agar kembali kosong setelah berhasil disimpan
             idFil.setText("");
-            jTextField1.setText("");
-            jTextField2.setText("");
+            namaMenu.setText("");
+            hargaMenu.setText("");
             idFil.requestFocus(); // Kembalikan kursor ke kolom ID
             
             // Tutup koneksi
@@ -178,9 +185,28 @@ public class KelolaPage extends javax.swing.JFrame {
             // Menangkap error database (misal: ID sudah ada/duplikat)
             javax.swing.JOptionPane.showMessageDialog(this, "Gagal menyimpan data! Error: " + e.getMessage());
         }
-    }
-    }
-//GEN-LAST:event_simpanButActionPerforme
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_simpanButActionPerformed
+    
+    private void kembaliButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliButActionPerformed
+        AdminHome adHome = new AdminHome();
+        adHome.setVisible(true);
+        this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_kembaliButActionPerformed
+
+    private void hargaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hargaMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hargaMenuActionPerformed
+
+    private void namaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namaMenuActionPerformed
+
+    private void idFilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idFilActionPerformed
     
     /**
      * @param args the command line arguments
@@ -198,24 +224,34 @@ public class KelolaPage extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(KelolaUangPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(KelolaUangPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(KelolaUangPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(KelolaUangPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new KelolaPage().setVisible(true));
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new KelolaUangPage().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField hargaMenu;
     private javax.swing.JTextField idFil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton kembaliBut;
+    private javax.swing.JTextField namaMenu;
     private javax.swing.JButton simpanBut;
     // End of variables declaration//GEN-END:variables
 }

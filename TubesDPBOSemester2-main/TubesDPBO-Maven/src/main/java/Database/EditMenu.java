@@ -1,24 +1,30 @@
 package Database;
 
+import java.sql.*;
+import MenuPackage.Menu;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
+/**
+ * PERBAIKAN: Ditambahkan overload editMenu(Menu) agar caller
+ * bisa langsung melempar objek Menu tanpa mengurai field-nya.
+ */
 public class EditMenu {
-    
-    public boolean editMenu(String idMenu, String namaMenu, double harga) {
-        String sql = "UPDATE menu SET nama_menu = ?, harga = ? WHERE id_menu = ?";
-        
-        try (Connection koneksi = KoneksiDB.getKoneksi();
-             PreparedStatement statement = koneksi.prepareStatement(sql)) {
-                
-            statement.setString(1, namaMenu);
-            statement.setDouble(2, harga);
-            statement.setString(3, idMenu);
-            
-            int rowsUpdated = statement.executeUpdate();
-            return rowsUpdated > 0; 
+
+    /** Edit menu menggunakan objek Menu. */
+    public boolean editMenu(Menu menu) {
+        return editMenu(menu.getIdMenu(), menu.getNamaProduk(), menu.getHarga());
+    }
+
+    /** Edit menu dengan parameter primitif (dipakai GUI). */
+    public boolean editMenu(String idMenu, String namaMenu, int harga) {
+        String sql = "UPDATE menu SET nama = ?, harga = ? WHERE id = ?";
+        try (Connection koneksi   = KoneksiDB.getKoneksi();
+             PreparedStatement ps = koneksi.prepareStatement(sql)) {
+
+            ps.setString(1, namaMenu);
+            ps.setInt(2, harga);
+            ps.setString(3, idMenu);
+
+            return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             System.out.println("Gagal mengedit menu: " + e.getMessage());
             return false;

@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package PesananPackage;
 
-/**
- *
- * @author lenovo
- */
 public class Promo {
 
     private String kodePromo;
-    private double diskon;
+    private double diskon;      // nilai 0.0 – 1.0 (mis. 0.10 = diskon 10%)
 
     public Promo(String kode, double diskon) {
         this.kodePromo = kode;
@@ -22,15 +14,25 @@ public class Promo {
         return kodePromo;
     }
 
-    public void setKodePromo(String kode) {
-        this.kodePromo = kode;
-    }
-
     public double getDiskon() {
         return diskon;
     }
 
+    public void setKodePromo(String k) {
+        this.kodePromo = k;
+    }
+
     public void setDiskon(double d) {
         this.diskon = d;
+    }
+
+    /**
+     * Terapkan diskon ke total harga pesanan.
+     *
+     * @param totalHarga total sebelum diskon
+     * @return total setelah diskon
+     */
+    public double terapkanDiskon(double totalHarga) {
+        return totalHarga * (1.0 - diskon);
     }
 }

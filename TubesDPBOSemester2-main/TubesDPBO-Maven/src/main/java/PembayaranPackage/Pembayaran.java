@@ -1,37 +1,58 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package PembayaranPackage;
 
+import PesananPackage.Pesanan;
+import StatusPackage.StatusPesanan;
+
 /**
- *
- * @author lenovo
+ * PERBAIKAN: Ditambahkan referensi ke Pesanan sehingga prosesPembayaran() bisa
+ * langsung memperbarui status pesanan setelah berhasil. Sebelumnya Pembayaran
+ * sama sekali tidak terhubung ke Pesanan.
  */
-abstract class Pembayaran {
+public abstract class Pembayaran {
+
     private String idPembayaran;
     private double jumlahBayar;
+    private Pesanan pesanan;        // relasi ke Pesanan
 
-    public Pembayaran(String idPembayaran, double jumlahBayar) {
+    public Pembayaran(String idPembayaran, Pesanan pesanan) {
         this.idPembayaran = idPembayaran;
-        this.jumlahBayar = jumlahBayar;
+        this.pesanan = pesanan;
+        this.jumlahBayar = pesanan.hitungTotal();
     }
 
     public String getIdPembayaran() {
         return idPembayaran;
     }
 
-    public void setIdPembayaran(String idPembayaran) {
-        this.idPembayaran = idPembayaran;
-    }
-
     public double getJumlahBayar() {
         return jumlahBayar;
     }
 
-    public void setJumlahBayar(double jumlahBayar) {
-        this.jumlahBayar = jumlahBayar;
+    public Pesanan getPesanan() {
+        return pesanan;
     }
-    
+
+    public void setIdPembayaran(String id) {
+        this.idPembayaran = id;
+    }
+
+    public void setJumlahBayar(double bayar) {
+        this.jumlahBayar = bayar;
+    }
+
+    public void setPesanan(Pesanan p) {
+        this.pesanan = p;
+        this.jumlahBayar = p.hitungTotal();
+    }
+
+    /**
+     * Dipanggil oleh subclass setelah pembayaran berhasil: mengubah status
+     * pesanan menjadi SELESAI.
+     */
+    protected void selesaikanPembayaran() {
+        pesanan.setStatus(StatusPesanan.SELESAI);
+        System.out.println("Status pesanan " + pesanan.getIdPesanan() + " → SELESAI");
+    }
+
     public abstract boolean prosesPembayaran();
 }

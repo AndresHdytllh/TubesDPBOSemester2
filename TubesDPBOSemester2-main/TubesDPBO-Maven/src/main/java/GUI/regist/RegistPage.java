@@ -117,6 +117,7 @@ public class RegistPage extends javax.swing.JFrame {
         this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_kembaliButActionPerformed
+    
 
     private void passFilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFilActionPerformed
         // TODO add your handling code here:

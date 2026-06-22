@@ -3,12 +3,8 @@ package LaporanPackage;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author lenovo
- */
-
 public class LaporanKeuangan {
+
     private String idLaporan;
     private String periode;
     private List<Invoice> daftarInvoice;
@@ -29,23 +25,27 @@ public class LaporanKeuangan {
         return periode;
     }
 
+    public double getTotalPendapatan() {
+        return totalPendapatan;
+    }
+
+    public List<Invoice> getDaftarInvoice() {
+        return daftarInvoice;
+    }
+
     public void tambahInvoice(Invoice invoice) {
         daftarInvoice.add(invoice);
         totalPendapatan += invoice.getTotalBayar();
-    }
-
-    public double getTotalPendapatan() {
-        return totalPendapatan;
     }
 
     public void tampilkanLaporan() {
         System.out.println("=================================");
         System.out.println("        LAPORAN KEUANGAN         ");
         System.out.println("=================================");
-        System.out.println("ID Laporan   : " + idLaporan);
-        System.out.println("Periode      : " + periode);
+        System.out.println("ID Laporan      : " + idLaporan);
+        System.out.println("Periode         : " + periode);
         System.out.println("Jumlah Transaksi: " + daftarInvoice.size());
-        System.out.printf("Total Pendapatan: Rp %.2f%n", getTotalPendapatan());
+        System.out.printf("Total Pendapatan: Rp %.2f%n", totalPendapatan);
         System.out.println("=================================");
     }
 }

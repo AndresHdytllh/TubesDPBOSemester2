@@ -1,17 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package PesananPackage;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import MenuPackage.DetailPesanan;
+import StatusPackage.StatusPesanan;
 
 /**
- *
- * @author lenovo
+ * PERBAIKAN: Status pesanan diinisialisasi menggunakan konstanta dari
+ * StatusPesanan, bukan string literal bebas.
  */
 public class Pesanan {
 
@@ -24,41 +21,41 @@ public class Pesanan {
         this.idPesanan = idPesanan;
         this.daftarItem = new ArrayList<>();
         this.totalHarga = 0;
-
+        this.status = StatusPesanan.MENUNGGU;   // gunakan konstanta
     }
 
     public String getIdPesanan() {
         return idPesanan;
     }
 
-    public void setIdPesanan(String idPesanan) {
-        this.idPesanan = idPesanan;
-    }
-
     public String getStatus() {
         return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public double getTotalHarga() {
         return totalHarga;
     }
 
+    public List<DetailPesanan> getDaftarItem() {
+        return daftarItem;
+    }
+
+    public void setIdPesanan(String id) {
+        this.idPesanan = id;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public void tambahItem(DetailPesanan item) {
         daftarItem.add(item);
         totalHarga += item.getSubtotal();
-        System.out.println(item.getQuantity() + "x " + item.getNamaProduk() + " berhasil ditambahkan ke pesanan");
+        System.out.println(item.getQuantity() + "x "
+                + item.getNamaProduk() + " berhasil ditambahkan ke pesanan.");
     }
 
     public double hitungTotal() {
         return totalHarga;
-    }
-
-    public List<DetailPesanan> getDaftarItem() {
-        return daftarItem;
-
     }
 }
